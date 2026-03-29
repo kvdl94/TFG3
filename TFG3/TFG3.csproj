@@ -13,6 +13,7 @@
     <PackageReference Include="itext" Version="9.5.0" />
     <PackageReference Include="itext.bouncy-castle-adapter" Version="9.5.0" />
     <PackageReference Include="itext.pdfhtml" Version="6.3.1" />
+    <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
     <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1652.0" />
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.5" />
     <PackageReference Include="Supabase" Version="1.1.1" />
