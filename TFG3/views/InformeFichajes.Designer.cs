@@ -351,7 +351,7 @@
             iconButtonImprimir.TabIndex = 0;
             iconButtonImprimir.Text = "Imprimir PDF";
             iconButtonImprimir.UseVisualStyleBackColor = false;
-            iconButtonImprimir.Click += iconButtonImprimir_Click;
+            iconButtonImprimir.Click += btnImprimir_Click;
             // 
             // InformeFichajes
             // 

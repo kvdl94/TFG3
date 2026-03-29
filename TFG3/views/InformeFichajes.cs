@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using iText.Html2pdf;
+using ReaLTaiizor.Controls;
 using TFG3.Controllers;
 using TFG3.Modelo;
 
@@ -21,12 +22,12 @@ namespace TFG3.views
             this.departamento = departamento;
         }
 
-        private void InformeFichajes_Load(object sender, EventArgs e)
+        private async void InformeFichajes_Load(object sender, EventArgs e)
         {
             CargarDatos();
         }
 
-        private async void CargarDatos()
+        private async Task CargarDatos()
         {
             // Datos del empleado en panel superior
             labelNombre.Text = trabajador.nombre + " " + trabajador.apellidos;
@@ -131,20 +132,49 @@ namespace TFG3.views
             this.Close();
         }
 
-        private void iconButtonImprimir_Click(object sender, EventArgs e)
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread hiloDialogo = new System.Threading.Thread(() =>
+            {
+               
+                SaveFileDialog dialogo = new SaveFileDialog();
+                dialogo.Filter = "PDF|*.pdf";
+                dialogo.FileName = "Informe_" + trabajador.nombre + "_" + DateTime.Now.ToString("MMyyyy");
+
+              
+                if (dialogo.ShowDialog() == DialogResult.OK)
+                {
+                    string rutaElegida = dialogo.FileName;
+
+                    this.Invoke(new Action(() =>
+                    {
+                        GenerarPDF(rutaElegida);
+                        MessageBox.Show("¡Informe de DHL guardado con éxito!");
+                    }));
+                }
+            }); 
+
+            
+            hiloDialogo.SetApartmentState(System.Threading.ApartmentState.STA);
+
+            
+            hiloDialogo.Start();
+        }
+
+        private void GenerarPDF(string ruta)
         {
             string filas = "";
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < dataGridViewFichajes.Rows.Count; i++)
             {
-                string estado = dataGridView1.Rows[i].Cells[4].Value?.ToString();
+                string estado = dataGridViewFichajes.Rows[i].Cells[4].Value?.ToString();
                 string clase = estado == "Tarde" ? "tarde" : "puntual";
-                filas += $"<tr><td>{dataGridView1.Rows[i].Cells[0].Value}</td><td>{dataGridView1.Rows[i].Cells[1].Value}</td><td>{dataGridView1.Rows[i].Cells[2].Value}</td><td class='{clase}'>{dataGridView1.Rows[i].Cells[3].Value}</td><td class='{clase}'>{estado}</td></tr>";
+                filas += $"<tr><td>{dataGridViewFichajes.Rows[i].Cells[0].Value}</td><td>{dataGridViewFichajes.Rows[i].Cells[1].Value}</td><td>{dataGridViewFichajes.Rows[i].Cells[2].Value}</td><td class='{clase}'>{dataGridViewFichajes.Rows[i].Cells[3].Value}</td><td class='{clase}'>{estado}</td></tr>";
             }
 
             string html = $@"
     <html><head><style>
         body {{ font-family: Arial; margin: 40px; }}
-        .cabecera {{ background: #1a1a1a; color: white; padding: 20px; margin-bottom: 0; }}
+        .cabecera {{ background: #1a1a1a; color: white; padding: 20px; }}
         .titulo {{ color: #c8a040; font-size: 20px; font-weight: bold; }}
         .subtitulo {{ color: #888; font-size: 12px; margin-top: 5px; }}
         .stats {{ display: flex; gap: 40px; padding: 15px 20px; background: #f8f8f8; margin-bottom: 20px; }}
@@ -176,18 +206,11 @@ namespace TFG3.views
         </table>
     </body></html>";
 
-            SaveFileDialog dialogo = new SaveFileDialog();
-            dialogo.Filter = "PDF|*.pdf";
-            dialogo.FileName = "Informe_" + trabajador.nombre + "_" + DateTime.Now.ToString("MMyyyy");
-
-            if (dialogo.ShowDialog() == DialogResult.OK)
+            using (FileStream stream = new FileStream(ruta, FileMode.Create))
             {
-                using (FileStream stream = new FileStream(dialogo.FileName, FileMode.Create))
-                {
-                    HtmlConverter.ConvertToPdf(html, stream);
-                }
-                MessageBox.Show("PDF guardado correctamente.");
+                HtmlConverter.ConvertToPdf(html, stream);
             }
+            MessageBox.Show("PDF guardado correctamente.");
         }
     }
 }
