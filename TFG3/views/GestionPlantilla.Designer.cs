@@ -43,7 +43,14 @@
             Activo = new DataGridViewTextBoxColumn();
             Vacaciones = new DataGridViewTextBoxColumn();
             Antigüedad = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -77,14 +84,14 @@
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.Gainsboro;
-            dataGridView1.Location = new Point(-75, 3);
+            dataGridView1.Location = new Point(-75, 61);
             dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 45;
-            dataGridView1.Size = new Size(1383, 775);
+            dataGridView1.Size = new Size(1383, 717);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
@@ -161,7 +168,6 @@
             // 
             // Activo
             // 
-            Activo.DataPropertyName = "activo";
             Activo.HeaderText = "Activo";
             Activo.MinimumWidth = 6;
             Activo.Name = "Activo";
@@ -185,15 +191,103 @@
             Antigüedad.ReadOnly = true;
             Antigüedad.Width = 125;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 26, 26);
+            panel1.Controls.Add(iconButton2);
+            panel1.Controls.Add(iconPictureBox1);
+            panel1.Controls.Add(iconButton1);
+            panel1.Controls.Add(hopeTextBox1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1401, 58);
+            panel1.TabIndex = 1;
+            // 
+            // iconButton2
+            // 
+            iconButton2.BackColor = Color.FromArgb(212, 5, 17);
+            iconButton2.ForeColor = Color.White;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 25;
+            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton2.Location = new Point(1183, 3);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(215, 43);
+            iconButton2.TabIndex = 14;
+            iconButton2.Text = "Eliminar";
+            iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = Color.FromArgb(42, 42, 42);
+            iconPictureBox1.ForeColor = Color.FromArgb(200, 160, 64);
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            iconPictureBox1.IconColor = Color.FromArgb(200, 160, 64);
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 40;
+            iconPictureBox1.Location = new Point(261, 3);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(40, 40);
+            iconPictureBox1.TabIndex = 2;
+            iconPictureBox1.TabStop = false;
+            // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.FromArgb(200, 160, 64);
+            iconButton1.ForeColor = Color.FromArgb(26, 26, 26);
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 30;
+            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton1.Location = new Point(962, 3);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(215, 43);
+            iconButton1.TabIndex = 1;
+            iconButton1.Text = "+ Nuevo";
+            iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
+            // 
+            // hopeTextBox1
+            // 
+            hopeTextBox1.BackColor = Color.FromArgb(42, 42, 42);
+            hopeTextBox1.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox1.BorderColorA = Color.FromArgb(200, 160, 64);
+            hopeTextBox1.BorderColorB = Color.FromArgb(200, 160, 64);
+            hopeTextBox1.Font = new Font("Segoe UI", 12F);
+            hopeTextBox1.ForeColor = Color.White;
+            hopeTextBox1.Hint = "Buscar empleado...";
+            hopeTextBox1.Location = new Point(0, 0);
+            hopeTextBox1.MaxLength = 32767;
+            hopeTextBox1.Multiline = false;
+            hopeTextBox1.Name = "hopeTextBox1";
+            hopeTextBox1.PasswordChar = '\0';
+            hopeTextBox1.ScrollBars = ScrollBars.None;
+            hopeTextBox1.SelectedText = "";
+            hopeTextBox1.SelectionLength = 0;
+            hopeTextBox1.SelectionStart = 0;
+            hopeTextBox1.Size = new Size(244, 43);
+            hopeTextBox1.TabIndex = 0;
+            hopeTextBox1.TabStop = false;
+            hopeTextBox1.UseSystemPasswordChar = false;
+            hopeTextBox1.TextChanged += hopeTextBox1_TextChanged;
+            // 
             // GestionPlantilla
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dataGridView1);
+            Controls.Add(panel1);
             Name = "GestionPlantilla";
             Size = new Size(1401, 801);
             Load += GestionPlantilla_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -211,5 +305,10 @@
         private DataGridViewTextBoxColumn Activo;
         private DataGridViewTextBoxColumn Vacaciones;
         private DataGridViewTextBoxColumn Antigüedad;
+        private Panel panel1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

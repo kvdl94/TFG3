@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             panelSuperior = new Panel();
+            ComboBoxRol = new ReaLTaiizor.Controls.HopeComboBox();
             labelRol = new Label();
             labelNombre = new Label();
             pictureBox1 = new PictureBox();
             panelInferior = new Panel();
+            iconButtonInforme = new FontAwesome.Sharp.IconButton();
             iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -56,6 +58,7 @@
             // panelSuperior
             // 
             panelSuperior.BackColor = Color.FromArgb(26, 26, 26);
+            panelSuperior.Controls.Add(ComboBoxRol);
             panelSuperior.Controls.Add(labelRol);
             panelSuperior.Controls.Add(labelNombre);
             panelSuperior.Controls.Add(pictureBox1);
@@ -64,6 +67,21 @@
             panelSuperior.Name = "panelSuperior";
             panelSuperior.Size = new Size(571, 125);
             panelSuperior.TabIndex = 0;
+            // 
+            // ComboBoxRol
+            // 
+            ComboBoxRol.BackColor = Color.FromArgb(42, 42, 42);
+            ComboBoxRol.DrawMode = DrawMode.OwnerDrawFixed;
+            ComboBoxRol.FlatStyle = FlatStyle.Flat;
+            ComboBoxRol.Font = new Font("Segoe UI", 12F);
+            ComboBoxRol.ForeColor = Color.FromArgb(200, 160, 64);
+            ComboBoxRol.FormattingEnabled = true;
+            ComboBoxRol.ItemHeight = 30;
+            ComboBoxRol.Items.AddRange(new object[] { "empleado ", "admin" });
+            ComboBoxRol.Location = new Point(409, 86);
+            ComboBoxRol.Name = "ComboBoxRol";
+            ComboBoxRol.Size = new Size(159, 36);
+            ComboBoxRol.TabIndex = 3;
             // 
             // labelRol
             // 
@@ -99,6 +117,7 @@
             // 
             // panelInferior
             // 
+            panelInferior.Controls.Add(iconButtonInforme);
             panelInferior.Controls.Add(iconButton3);
             panelInferior.Controls.Add(iconButton2);
             panelInferior.Controls.Add(iconButton1);
@@ -120,6 +139,24 @@
             panelInferior.Size = new Size(571, 373);
             panelInferior.TabIndex = 1;
             // 
+            // iconButtonInforme
+            // 
+            iconButtonInforme.BackColor = Color.FromArgb(26, 26, 26);
+            iconButtonInforme.ForeColor = Color.FromArgb(200, 160, 64);
+            iconButtonInforme.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            iconButtonInforme.IconColor = Color.FromArgb(200, 160, 64);
+            iconButtonInforme.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonInforme.IconSize = 30;
+            iconButtonInforme.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonInforme.Location = new Point(435, 300);
+            iconButtonInforme.Name = "iconButtonInforme";
+            iconButtonInforme.Size = new Size(113, 47);
+            iconButtonInforme.TabIndex = 15;
+            iconButtonInforme.Text = "Informe";
+            iconButtonInforme.TextAlign = ContentAlignment.MiddleRight;
+            iconButtonInforme.UseVisualStyleBackColor = false;
+            iconButtonInforme.Click += iconButtonInforme_Click;
+            // 
             // iconButton3
             // 
             iconButton3.BackColor = Color.WhiteSmoke;
@@ -129,7 +166,7 @@
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 25;
             iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(409, 300);
+            iconButton3.Location = new Point(282, 300);
             iconButton3.Name = "iconButton3";
             iconButton3.Size = new Size(113, 42);
             iconButton3.TabIndex = 14;
@@ -147,7 +184,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 25;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(217, 300);
+            iconButton2.Location = new Point(147, 300);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(117, 42);
             iconButton2.TabIndex = 13;
@@ -165,13 +202,14 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 25;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(26, 300);
+            iconButton1.Location = new Point(12, 300);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(125, 42);
             iconButton1.TabIndex = 12;
             iconButton1.Text = "Guardar";
             iconButton1.TextAlign = ContentAlignment.MiddleRight;
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // textBoxAntigüedad
             // 
@@ -311,5 +349,7 @@
         private TextBox textBoxDNI;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private ReaLTaiizor.Controls.HopeComboBox ComboBoxRol;
+        private FontAwesome.Sharp.IconButton iconButtonInforme;
     }
 }

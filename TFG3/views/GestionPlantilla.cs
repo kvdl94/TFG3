@@ -11,7 +11,7 @@ namespace TFG3.views
     {
         private List<Trabajador> empleados = new List<Trabajador>();
         private List<Departamento> departamentos = new List<Departamento>();
-
+        private bool esNuevo = false;
         public GestionPlantilla()
         {
             InitializeComponent();
@@ -59,6 +59,17 @@ namespace TFG3.views
                         j++;
                     }
                 }
+
+                if (t.activo == true)
+                {
+                    dataGridView1.Rows[i].Cells["Activo"].Value = "✓";
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["Activo"].Value = "✗";
+                }
+
+
             }
         }
 
@@ -116,9 +127,88 @@ namespace TFG3.views
                         j++;
                     }
                 }
+
+                if (t.activo == true)
+                {
+                    dataGridView1.Rows[i].Cells["Activo"].Value = "✓";
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["Activo"].Value = "✗";
+                }
+
+
+
+
             }
 
             dataGridView1.ClearSelection();
+        }
+
+        private async void iconButton2_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecciona un empleado primero.");
+                return;
+            }
+
+            Trabajador trabajador = empleados[dataGridView1.SelectedRows[0].Index];
+
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro de que quieres eliminar a " + trabajador.nombre + "?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                TrabajadorController controller = new TrabajadorController();
+                await controller.EliminarTrabajador(trabajador.id);
+                await Recargar();
+
+            }
+
+
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            NuevoEmpleado formulario = new NuevoEmpleado(this);
+            formulario.ShowDialog();
+        }
+
+        private void hopeTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string busqueda = hopeTextBox1.Text.ToLower();
+            dataGridView1.CurrentCell = null;
+            dataGridView1.ClearSelection();
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].IsNewRow)
+                {
+                    continue;
+                }
+
+                bool visible = false;
+
+                for (int j = 0; j < dataGridView1.Rows[i].Cells.Count; j++)
+                {
+                    if (dataGridView1.Rows[i].Cells[j].Value != null)
+                    {
+                        if (dataGridView1.Rows[i].Cells[j].Value.ToString().ToLower().Contains(busqueda))
+                        {
+                            visible = true;
+                        }
+                    }
+                }
+
+                dataGridView1.Rows[i].Visible = visible;
+            }
         }
     }
 }
