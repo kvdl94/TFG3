@@ -89,5 +89,14 @@ namespace TFG3.views
             panelContenedor.Controls.Add(gemini);
             gemini.BringToFront();
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            GestionVacaciones vista = new GestionVacaciones();
+            vista.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(vista);
+            vista.BringToFront();
+        }
     }
 }

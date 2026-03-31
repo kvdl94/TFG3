@@ -78,7 +78,7 @@
             iconButtonGemini.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonGemini.IconSize = 24;
             iconButtonGemini.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonGemini.Location = new Point(4, 512);
+            iconButtonGemini.Location = new Point(4, 507);
             iconButtonGemini.Name = "iconButtonGemini";
             iconButtonGemini.Size = new Size(261, 94);
             iconButtonGemini.TabIndex = 10;
@@ -174,6 +174,7 @@
             iconButton3.TabIndex = 5;
             iconButton3.Text = "Vacaciones";
             iconButton3.UseVisualStyleBackColor = false;
+            iconButton3.Click += iconButton3_Click;
             // 
             // iconButton2
             // 
@@ -187,7 +188,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 24;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(5, 386);
+            iconButton2.Location = new Point(5, 364);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(261, 94);
             iconButton2.TabIndex = 4;

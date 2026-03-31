@@ -30,5 +30,10 @@ namespace TFG3.Modelo
 
         [Column("fecha_revision")]
         public DateTime? fecha_revision { get; set; }
+
+        [Column("motivo_rechazo")]
+        public string motivo_rechazo { get; set; }
+
+
     }
 }

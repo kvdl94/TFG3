@@ -40,5 +40,45 @@ namespace TFG3.Controllers
                 return listaFinal;
             }
         }
+
+        public async Task AprobarVacacion(int id)
+        {
+            try
+            {
+                await SupabaseConexion.Client
+                    .From<Vacaciones>()
+                    .Where(v => v.id == id)
+                    .Set(v => v.estado_solicitud, "aprobada")
+                    .Set(v => v.fecha_revision, DateTime.Now)
+                    .Update();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        public async Task RechazarVacacion(int id, string motivo)
+        {
+            try
+            {
+                await SupabaseConexion.Client
+                    .From<Vacaciones>()
+                    .Where(v => v.id == id)
+                    .Set(v => v.estado_solicitud, "rechazada")
+                    .Set(v => v.motivo_rechazo, motivo)
+                    .Set(v => v.fecha_revision, DateTime.Now)
+                    .Update();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+
+
+
     }
 }
