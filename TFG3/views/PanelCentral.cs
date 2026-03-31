@@ -24,12 +24,12 @@ namespace TFG3.views
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             AjustarBotones();
-            
+
 
         }
 
 
-       
+
 
 
         private void AjustarBotones()
@@ -133,11 +133,13 @@ namespace TFG3.views
             }
         }
 
-
-
-
-
-
-
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            GestionTareas vista = new GestionTareas();
+            vista.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(vista);
+            vista.BringToFront();
+        }
     }
 }

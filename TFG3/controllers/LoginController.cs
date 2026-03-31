@@ -34,7 +34,7 @@ namespace TFG3.Controllers
                 }
 
                 Trabajador trabajador = await trabajadorController.ObtenerTrabajadorPorEmail(email);
-
+                SupabaseConexion.UsuarioActualId = trabajador.id;
                 return trabajador;
             }
             catch (Exception ex)

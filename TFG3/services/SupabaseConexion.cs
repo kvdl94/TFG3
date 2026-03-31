@@ -8,7 +8,7 @@ namespace TFG3.services
     {
         private static Client _client;
         private static Client _adminClient;
-
+        public static string UsuarioActualId { get; set; }
         public static Client Client
         {
             get

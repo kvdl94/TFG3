@@ -155,6 +155,7 @@
             iconButton4.TabIndex = 6;
             iconButton4.Text = "Tareas";
             iconButton4.UseVisualStyleBackColor = false;
+            iconButton4.Click += iconButton4_Click;
             // 
             // iconButton3
             // 
@@ -235,7 +236,6 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(1300, 1159);
             panelContenedor.TabIndex = 2;
-           
             // 
             // PanelCentral
             // 
