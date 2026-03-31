@@ -61,5 +61,33 @@ namespace TFG3.views
 
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(dashboard);
+            dashboard.BringToFront();
+        }
+
+
+        private void PanelCentral_Load(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(dashboard);
+            dashboard.BringToFront();
+        }
+
+        private void iconButtonGemini_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            Gemini gemini = new Gemini();
+            gemini.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(gemini);
+            gemini.BringToFront();
+        }
     }
 }

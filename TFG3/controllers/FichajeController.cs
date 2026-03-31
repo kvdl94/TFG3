@@ -41,5 +41,42 @@ namespace TFG3.Controllers
                 return listaFinal;
             }
         }
+
+        public async Task<List<Fichaje>> ObtenerTodos()
+        {
+            List<Fichaje> listaFinal = new List<Fichaje>();
+
+            try
+            {
+                var resultado = await SupabaseConexion.Client
+                    .From<Fichaje>()
+                    .Get();
+
+                if (resultado == null)
+                {
+                    return listaFinal;
+                }
+
+                if (resultado.Models == null)
+                {
+                    return listaFinal;
+                }
+
+                for (int i = 0; i < resultado.Models.Count; i++)
+                {
+                    listaFinal.Add(resultado.Models[i]);
+                }
+
+                return listaFinal;
+            }
+            catch (Exception ex)
+            {
+                return listaFinal;
+            }
+        }
+
+
+
+
     }
 }

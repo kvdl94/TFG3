@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelCentral));
             panel1 = new ReaLTaiizor.Controls.Panel();
+            iconButtonGemini = new FontAwesome.Sharp.IconButton();
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             iconButton6 = new FontAwesome.Sharp.IconButton();
             iconButton5 = new FontAwesome.Sharp.IconButton();
@@ -46,6 +47,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 26, 26);
+            panel1.Controls.Add(iconButtonGemini);
             panel1.Controls.Add(bigLabel1);
             panel1.Controls.Add(iconButton6);
             panel1.Controls.Add(iconButton5);
@@ -63,6 +65,26 @@
             panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             panel1.TabIndex = 1;
             panel1.Text = "panel1";
+            // 
+            // iconButtonGemini
+            // 
+            iconButtonGemini.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            iconButtonGemini.BackColor = Color.FromArgb(42, 42, 42);
+            iconButtonGemini.FlatAppearance.BorderSize = 0;
+            iconButtonGemini.FlatStyle = FlatStyle.Flat;
+            iconButtonGemini.ForeColor = Color.FromArgb(170, 170, 170);
+            iconButtonGemini.IconChar = FontAwesome.Sharp.IconChar.Comment;
+            iconButtonGemini.IconColor = Color.White;
+            iconButtonGemini.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonGemini.IconSize = 24;
+            iconButtonGemini.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonGemini.Location = new Point(4, 512);
+            iconButtonGemini.Name = "iconButtonGemini";
+            iconButtonGemini.Size = new Size(261, 94);
+            iconButtonGemini.TabIndex = 10;
+            iconButtonGemini.Text = "Gemini";
+            iconButtonGemini.UseVisualStyleBackColor = false;
+            iconButtonGemini.Click += iconButtonGemini_Click;
             // 
             // bigLabel1
             // 
@@ -109,7 +131,7 @@
             iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton5.IconSize = 24;
             iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(5, 878);
+            iconButton5.Location = new Point(4, 892);
             iconButton5.Name = "iconButton5";
             iconButton5.Size = new Size(261, 94);
             iconButton5.TabIndex = 7;
@@ -127,7 +149,7 @@
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 24;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(5, 721);
+            iconButton4.Location = new Point(5, 762);
             iconButton4.Name = "iconButton4";
             iconButton4.Size = new Size(261, 94);
             iconButton4.TabIndex = 6;
@@ -146,7 +168,7 @@
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 24;
             iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(5, 550);
+            iconButton3.Location = new Point(4, 633);
             iconButton3.Name = "iconButton3";
             iconButton3.Size = new Size(261, 94);
             iconButton3.TabIndex = 5;
@@ -191,6 +213,7 @@
             iconButton1.TabIndex = 3;
             iconButton1.Text = "Inicio";
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // pictureBox2
             // 
@@ -222,6 +245,7 @@
             Controls.Add(panel1);
             Name = "PanelCentral";
             Text = "PanelCentral";
+            Load += PanelCentral_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -239,5 +263,6 @@
         private PictureBox pictureBox2;
         private ReaLTaiizor.Controls.BigLabel bigLabel1;
         private Panel panelContenedor;
+        private FontAwesome.Sharp.IconButton iconButtonGemini;
     }
 }
