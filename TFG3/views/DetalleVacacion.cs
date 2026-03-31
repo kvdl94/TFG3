@@ -105,6 +105,7 @@ namespace TFG3.views
                 labelDisponibilidad.ForeColor = Color.FromArgb(21, 87, 36);
                 labelDetalleDisponibilidad.Text = empleadosDeVacaciones + " de " + totalEmpleados + " empleados de vacaciones esas fechas";
                 labelDetalleDisponibilidad.ForeColor = Color.FromArgb(21, 87, 36);
+                panelSemaforo.BackColor = Color.FromArgb(212, 237, 218);
             }
             else if (porcentaje < 50)
             {
@@ -113,6 +114,7 @@ namespace TFG3.views
                 labelDisponibilidad.ForeColor = Color.FromArgb(133, 100, 4);
                 labelDetalleDisponibilidad.Text = empleadosDeVacaciones + " de " + totalEmpleados + " empleados de vacaciones esas fechas";
                 labelDetalleDisponibilidad.ForeColor = Color.FromArgb(133, 100, 4);
+                panelSemaforo.BackColor = Color.FromArgb(255, 243, 205);
             }
             else
             {
@@ -121,6 +123,7 @@ namespace TFG3.views
                 labelDisponibilidad.ForeColor = Color.FromArgb(114, 28, 36);
                 labelDetalleDisponibilidad.Text = empleadosDeVacaciones + " de " + totalEmpleados + " empleados de vacaciones esas fechas";
                 labelDetalleDisponibilidad.ForeColor = Color.FromArgb(114, 28, 36);
+                panelSemaforo.BackColor = Color.FromArgb(248, 215, 218);
             }
 
           

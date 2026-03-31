@@ -124,7 +124,6 @@ namespace TFG3.views
             detalle.ShowDialog();
         }
 
-
         public async Task Recargar()
         {
             VacacionesController vacController = new VacacionesController();
@@ -133,8 +132,19 @@ namespace TFG3.views
             todasLasVacaciones = await vacController.ObtenerTodas();
             empleados = await trabController.ObtenerTodosLosTrabajadores();
 
+
             if (todasLasVacaciones == null) todasLasVacaciones = new List<Vacaciones>();
             if (empleados == null) empleados = new List<Trabajador>();
+           
+            Form panelCentral = Application.OpenForms["PanelCentral"];
+
+            if (panelCentral != null)
+            {
+                await ((PanelCentral)panelCentral).ActualizarBadgeVacaciones();
+            }
+
+
+
 
             MostrarVacaciones();
         }

@@ -51,6 +51,7 @@ namespace TFG3.Controllers
                     .Set(v => v.estado_solicitud, "aprobada")
                     .Set(v => v.fecha_revision, DateTime.Now)
                     .Update();
+                MessageBox.Show("Aprobada correctamente id: " + id);
             }
             catch (Exception ex)
             {

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using ReaLTaiizor.Controls;
+using TFG3.Controllers;
+using TFG3.Modelo;
 
 namespace TFG3.views
 {
@@ -22,21 +24,25 @@ namespace TFG3.views
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             AjustarBotones();
-
+            
 
         }
+
+
+       
 
 
         private void AjustarBotones()
         {
             int altoDisponible = panel1.Height - pictureBox2.Height - bigLabel1.Height - iconButton6.Height;
-            int altoPorBoton = altoDisponible / 5;
+            int altoPorBoton = altoDisponible / 6;
 
             iconButton1.Height = altoPorBoton;
             iconButton2.Height = altoPorBoton;
             iconButton3.Height = altoPorBoton;
             iconButton4.Height = altoPorBoton;
             iconButton5.Height = altoPorBoton;
+            iconButton6.Height = altoPorBoton;
         }
 
 
@@ -72,8 +78,9 @@ namespace TFG3.views
         }
 
 
-        private void PanelCentral_Load(object sender, EventArgs e)
+        private async void PanelCentral_Load(object sender, EventArgs e)
         {
+            await ActualizarBadgeVacaciones();
             panelContenedor.Controls.Clear();
             Dashboard dashboard = new Dashboard();
             dashboard.Dock = DockStyle.Fill;
@@ -98,5 +105,39 @@ namespace TFG3.views
             panelContenedor.Controls.Add(vista);
             vista.BringToFront();
         }
+
+
+        public async Task ActualizarBadgeVacaciones()
+        {
+            VacacionesController vacController = new VacacionesController();
+            List<Vacaciones> vacaciones = await vacController.ObtenerTodas();
+
+            int pendientes = 0;
+            for (int i = 0; i < vacaciones.Count; i++)
+            {
+                if (vacaciones[i].estado_solicitud == "pendiente")
+                {
+                    pendientes++;
+                }
+            }
+
+            if (pendientes > 0)
+            {
+                iconButton3.Text = "Vacaciones (" + pendientes + ")";
+                iconButton3.ForeColor = Color.FromArgb(212, 5, 17);
+            }
+            else
+            {
+                iconButton3.Text = "Vacaciones";
+                iconButton3.ForeColor = Color.FromArgb(170, 170, 170);
+            }
+        }
+
+
+
+
+
+
+
     }
 }

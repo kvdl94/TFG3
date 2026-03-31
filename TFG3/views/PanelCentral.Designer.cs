@@ -235,6 +235,7 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(1300, 1159);
             panelContenedor.TabIndex = 2;
+           
             // 
             // PanelCentral
             // 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             iconButtonAprobadas = new FontAwesome.Sharp.IconButton();
             iconButtonPendientes = new FontAwesome.Sharp.IconButton();
@@ -41,7 +42,6 @@
             FechaFin = new DataGridViewTextBoxColumn();
             Dias = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
-            Acciones = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -148,7 +148,15 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Empleado, FechaInicio, FechaFin, Dias, Estado, Acciones });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Empleado, FechaInicio, FechaFin, Dias, Estado });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(0, 0);
@@ -167,6 +175,7 @@
             Empleado.MinimumWidth = 6;
             Empleado.Name = "Empleado";
             Empleado.ReadOnly = true;
+            Empleado.SortMode = DataGridViewColumnSortMode.NotSortable;
             Empleado.Width = 125;
             // 
             // FechaInicio
@@ -176,6 +185,7 @@
             FechaInicio.MinimumWidth = 6;
             FechaInicio.Name = "FechaInicio";
             FechaInicio.ReadOnly = true;
+            FechaInicio.SortMode = DataGridViewColumnSortMode.NotSortable;
             FechaInicio.Width = 125;
             // 
             // FechaFin
@@ -185,6 +195,7 @@
             FechaFin.MinimumWidth = 6;
             FechaFin.Name = "FechaFin";
             FechaFin.ReadOnly = true;
+            FechaFin.SortMode = DataGridViewColumnSortMode.NotSortable;
             FechaFin.Width = 125;
             // 
             // Dias
@@ -193,6 +204,7 @@
             Dias.MinimumWidth = 6;
             Dias.Name = "Dias";
             Dias.ReadOnly = true;
+            Dias.SortMode = DataGridViewColumnSortMode.NotSortable;
             Dias.Width = 125;
             // 
             // Estado
@@ -202,15 +214,8 @@
             Estado.MinimumWidth = 6;
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
+            Estado.SortMode = DataGridViewColumnSortMode.NotSortable;
             Estado.Width = 125;
-            // 
-            // Acciones
-            // 
-            Acciones.HeaderText = "Acciones";
-            Acciones.MinimumWidth = 6;
-            Acciones.Name = "Acciones";
-            Acciones.ReadOnly = true;
-            Acciones.Width = 125;
             // 
             // GestionVacaciones
             // 
@@ -243,6 +248,5 @@
         private DataGridViewTextBoxColumn FechaFin;
         private DataGridViewTextBoxColumn Dias;
         private DataGridViewTextBoxColumn Estado;
-        private DataGridViewTextBoxColumn Acciones;
     }
 }
