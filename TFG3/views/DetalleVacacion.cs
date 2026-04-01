@@ -132,7 +132,7 @@ namespace TFG3.views
         private async void btnAprobar_Click(object sender, EventArgs e)
         {
             VacacionesController controller = new VacacionesController();
-            await controller.AprobarVacacion(vacacion.id);
+            await controller.AprobarVacacion(vacacion.id, vacacion.id_trabajador);
             await gestionVacaciones.Recargar();
             this.Close();
         }
@@ -148,7 +148,7 @@ namespace TFG3.views
             if (motivo == "") return;
 
             VacacionesController controller = new VacacionesController();
-            await controller.RechazarVacacion(vacacion.id, motivo);
+            await controller.RechazarVacacion(vacacion.id, motivo, vacacion.id_trabajador);
             await gestionVacaciones.Recargar();
             this.Close();
         }

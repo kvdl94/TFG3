@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             panelSuperior = new Panel();
-            labelFechaActual = new Label();
-            labelFecha = new Label();
+            labelTitulo = new Label();
             panel1 = new Panel();
             panelFichajes = new Panel();
             label10 = new Label();
@@ -51,11 +50,11 @@
             label3 = new Label();
             label4 = new Label();
             panelIzquierdo = new Panel();
-            panelBarras = new Panel();
             labelEmpleadosPorDepartamento = new Label();
+            panelBarras = new Panel();
             panelDrecho = new Panel();
-            panelFichajes2 = new Panel();
             labelFichajesDeHoy = new Label();
+            panelFichajes2 = new Panel();
             panelSuperior.SuspendLayout();
             panel1.SuspendLayout();
             panelFichajes.SuspendLayout();
@@ -63,43 +62,29 @@
             panelVacaciones.SuspendLayout();
             panelEmpleados.SuspendLayout();
             panelIzquierdo.SuspendLayout();
-            panelBarras.SuspendLayout();
             panelDrecho.SuspendLayout();
-            panelFichajes2.SuspendLayout();
             SuspendLayout();
             // 
             // panelSuperior
             // 
             panelSuperior.BackColor = Color.FromArgb(26, 26, 26);
-            panelSuperior.Controls.Add(labelFechaActual);
-            panelSuperior.Controls.Add(labelFecha);
+            panelSuperior.Controls.Add(labelTitulo);
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
             panelSuperior.Name = "panelSuperior";
             panelSuperior.Size = new Size(1295, 80);
             panelSuperior.TabIndex = 0;
             // 
-            // labelFechaActual
+            // labelTitulo
             // 
-            labelFechaActual.AutoSize = true;
-            labelFechaActual.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelFechaActual.ForeColor = Color.FromArgb(136, 136, 136);
-            labelFechaActual.Location = new Point(3, 57);
-            labelFechaActual.Name = "labelFechaActual";
-            labelFechaActual.Size = new Size(55, 23);
-            labelFechaActual.TabIndex = 1;
-            labelFechaActual.Text = "label1";
-            // 
-            // labelFecha
-            // 
-            labelFecha.AutoSize = true;
-            labelFecha.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelFecha.ForeColor = Color.White;
-            labelFecha.Location = new Point(3, 0);
-            labelFecha.Name = "labelFecha";
-            labelFecha.Size = new Size(306, 41);
-            labelFecha.TabIndex = 0;
-            labelFecha.Text = "PANEL DE CONTROL";
+            labelTitulo.AutoSize = true;
+            labelTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitulo.ForeColor = Color.White;
+            labelTitulo.Location = new Point(3, 0);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new Size(306, 41);
+            labelTitulo.TabIndex = 0;
+            labelTitulo.Text = "PANEL DE CONTROL";
             // 
             // panel1
             // 
@@ -306,6 +291,7 @@
             // panelIzquierdo
             // 
             panelIzquierdo.BackColor = Color.White;
+            panelIzquierdo.Controls.Add(labelEmpleadosPorDepartamento);
             panelIzquierdo.Controls.Add(panelBarras);
             panelIzquierdo.Dock = DockStyle.Left;
             panelIzquierdo.Location = new Point(0, 200);
@@ -313,29 +299,29 @@
             panelIzquierdo.Size = new Size(629, 601);
             panelIzquierdo.TabIndex = 2;
             // 
-            // panelBarras
-            // 
-            panelBarras.Controls.Add(labelEmpleadosPorDepartamento);
-            panelBarras.Location = new Point(4, 34);
-            panelBarras.Name = "panelBarras";
-            panelBarras.Size = new Size(622, 564);
-            panelBarras.TabIndex = 1;
-            // 
             // labelEmpleadosPorDepartamento
             // 
             labelEmpleadosPorDepartamento.AutoSize = true;
-            labelEmpleadosPorDepartamento.Dock = DockStyle.Top;
             labelEmpleadosPorDepartamento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelEmpleadosPorDepartamento.ForeColor = Color.FromArgb(26, 26, 26);
-            labelEmpleadosPorDepartamento.Location = new Point(0, 0);
+            labelEmpleadosPorDepartamento.Location = new Point(4, 10);
             labelEmpleadosPorDepartamento.Name = "labelEmpleadosPorDepartamento";
             labelEmpleadosPorDepartamento.Size = new Size(296, 28);
             labelEmpleadosPorDepartamento.TabIndex = 0;
             labelEmpleadosPorDepartamento.Text = "Empleados por Departamento";
             // 
+            // panelBarras
+            // 
+            panelBarras.AutoScroll = true;
+            panelBarras.Location = new Point(4, 72);
+            panelBarras.Name = "panelBarras";
+            panelBarras.Size = new Size(622, 526);
+            panelBarras.TabIndex = 1;
+            // 
             // panelDrecho
             // 
             panelDrecho.BackColor = Color.White;
+            panelDrecho.Controls.Add(labelFichajesDeHoy);
             panelDrecho.Controls.Add(panelFichajes2);
             panelDrecho.Dock = DockStyle.Right;
             panelDrecho.Location = new Point(624, 200);
@@ -343,25 +329,24 @@
             panelDrecho.Size = new Size(671, 601);
             panelDrecho.TabIndex = 3;
             // 
-            // panelFichajes2
-            // 
-            panelFichajes2.Controls.Add(labelFichajesDeHoy);
-            panelFichajes2.Location = new Point(0, 34);
-            panelFichajes2.Name = "panelFichajes2";
-            panelFichajes2.Size = new Size(568, 564);
-            panelFichajes2.TabIndex = 1;
-            // 
             // labelFichajesDeHoy
             // 
             labelFichajesDeHoy.AutoSize = true;
-            labelFichajesDeHoy.Dock = DockStyle.Top;
             labelFichajesDeHoy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelFichajesDeHoy.ForeColor = Color.FromArgb(26, 26, 26);
-            labelFichajesDeHoy.Location = new Point(0, 0);
+            labelFichajesDeHoy.Location = new Point(3, 5);
             labelFichajesDeHoy.Name = "labelFichajesDeHoy";
             labelFichajesDeHoy.Size = new Size(157, 28);
             labelFichajesDeHoy.TabIndex = 0;
             labelFichajesDeHoy.Text = "Fichajes de hoy";
+            // 
+            // panelFichajes2
+            // 
+            panelFichajes2.AutoScroll = true;
+            panelFichajes2.Location = new Point(3, 72);
+            panelFichajes2.Name = "panelFichajes2";
+            panelFichajes2.Size = new Size(668, 526);
+            panelFichajes2.TabIndex = 1;
             // 
             // Dashboard
             // 
@@ -386,19 +371,16 @@
             panelEmpleados.ResumeLayout(false);
             panelEmpleados.PerformLayout();
             panelIzquierdo.ResumeLayout(false);
-            panelBarras.ResumeLayout(false);
-            panelBarras.PerformLayout();
+            panelIzquierdo.PerformLayout();
             panelDrecho.ResumeLayout(false);
-            panelFichajes2.ResumeLayout(false);
-            panelFichajes2.PerformLayout();
+            panelDrecho.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelSuperior;
-        private Label labelFecha;
-        private Label labelFechaActual;
+        private Label labelTitulo;
         private Panel panel1;
         private Panel panelEmpleados;
         private Panel panel4;

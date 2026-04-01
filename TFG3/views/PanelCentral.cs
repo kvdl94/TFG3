@@ -19,30 +19,35 @@ namespace TFG3.views
 
         public PanelCentral()
         {
-
             InitializeComponent();
+            // Quitamos AjustarBotones() para que mande el diseño del editor
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            AjustarBotones();
-
-
         }
-
-
 
 
 
         private void AjustarBotones()
         {
-            int altoDisponible = panel1.Height - pictureBox2.Height - bigLabel1.Height - iconButton6.Height;
-            int altoPorBoton = altoDisponible / 6;
+            // Asegúrate de que el panel tenga el tamaño real antes de calcular
+            panel1.PerformLayout();
 
+            // Restamos el logo y el título. 
+            // No restes iconButton6 aquí si vas a incluirlo en la división por 8 (o el número total de botones)
+            int altoDisponible = panel1.Height - pictureBox2.Height - bigLabel1.Height - 40; // 40 de margen extra
+
+            // Tienes 8 elementos (Inicio, Empleados, Gemini, Vacaciones, Tareas, Notif, Mensajes, Salir)
+            int altoPorBoton = altoDisponible / 8;
+
+            // Aplicar a todos por igual
             iconButton1.Height = altoPorBoton;
             iconButton2.Height = altoPorBoton;
+            iconButtonGemini.Height = altoPorBoton; // ¡Faltaba este en tu lista!
             iconButton3.Height = altoPorBoton;
             iconButton4.Height = altoPorBoton;
             iconButton5.Height = altoPorBoton;
-            iconButton6.Height = altoPorBoton;
+            iconButton7.Height = altoPorBoton;
+            iconButton6.Height = altoPorBoton; // El de salir también
         }
 
 
@@ -80,7 +85,7 @@ namespace TFG3.views
 
         private async void PanelCentral_Load(object sender, EventArgs e)
         {
-            await ActualizarBadgeVacaciones();
+            await ActualizarBadgeNotificaciones();
             panelContenedor.Controls.Clear();
             Dashboard dashboard = new Dashboard();
             dashboard.Dock = DockStyle.Fill;
@@ -107,29 +112,26 @@ namespace TFG3.views
         }
 
 
-        public async Task ActualizarBadgeVacaciones()
+        public async Task ActualizarBadgeNotificaciones()
         {
-            VacacionesController vacController = new VacacionesController();
-            List<Vacaciones> vacaciones = await vacController.ObtenerTodas();
+            NotificacionController notifController = new NotificacionController();
+            List<Notificacion> notificaciones = await notifController.ObtenerTodas();
 
-            int pendientes = 0;
-            for (int i = 0; i < vacaciones.Count; i++)
+            int sinLeer = 0;
+            for (int i = 0; i < notificaciones.Count; i++)
             {
-                if (vacaciones[i].estado_solicitud == "pendiente")
-                {
-                    pendientes++;
-                }
+                if (notificaciones[i].leido == false) sinLeer++;
             }
 
-            if (pendientes > 0)
+            if (sinLeer > 0)
             {
-                iconButton3.Text = "Vacaciones (" + pendientes + ")";
-                iconButton3.ForeColor = Color.FromArgb(212, 5, 17);
+                iconButton5.Text = "Notificaciones (" + sinLeer + ")";
+                iconButton5.ForeColor = Color.FromArgb(212, 5, 17);
             }
             else
             {
-                iconButton3.Text = "Vacaciones";
-                iconButton3.ForeColor = Color.FromArgb(170, 170, 170);
+                iconButton5.Text = "Notificaciones";
+                iconButton5.ForeColor = Color.FromArgb(170, 170, 170);
             }
         }
 
@@ -137,6 +139,24 @@ namespace TFG3.views
         {
             panelContenedor.Controls.Clear();
             GestionTareas vista = new GestionTareas();
+            vista.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(vista);
+            vista.BringToFront();
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            GestionNotificaciones vista = new GestionNotificaciones();
+            vista.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(vista);
+            vista.BringToFront();
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            GestionMensajes vista = new GestionMensajes();
             vista.Dock = DockStyle.Fill;
             panelContenedor.Controls.Add(vista);
             vista.BringToFront();

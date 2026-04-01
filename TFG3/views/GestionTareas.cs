@@ -77,16 +77,16 @@ namespace TFG3.views
 
                 string fechaLimite = t.fecha_limite.HasValue ? t.fecha_limite.Value.ToString("dd/MM/yyyy") : "-";
 
-             
-                int fila = dataGridView1.Rows.Add(
-                    t.titulo,          // Columna Tarea
-                    nombreEmpleado,    // Columna Empleado
-                    t.prioridad,       // Columna Prioridad
-                    t.estado,          // Columna Estado
-                    fechaLimite,       // Columna Vence
-                    asignadoPor        // Columna Asignado por
-                );
 
+                int fila = dataGridView1.Rows.Add(
+                    t.titulo,
+                    nombreEmpleado,
+                    t.prioridad,
+                    t.estado,
+                    fechaLimite,
+                    asignadoPor
+                );
+                dataGridView1.Rows[fila].Tag = t.id;
                 // Color prioridad
                 Color colorPrioridad = Color.FromArgb(51, 51, 51);
                 if (t.prioridad == "alta") colorPrioridad = Color.FromArgb(114, 28, 36);
@@ -140,6 +140,35 @@ namespace TFG3.views
         {
             NuevaTarea formulario = new NuevaTarea(this);
             formulario.ShowDialog();
+        }
+
+        private async void iconButtonEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecciona una tarea para eliminar.");
+                return;
+            }
+
+            int id = (int)dataGridView1.SelectedRows[0].Tag;
+
+            DialogResult confirm = MessageBox.Show(
+                "¿Seguro que quieres eliminar esta tarea?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm == DialogResult.Yes)
+            {
+                TareaController controller = new TareaController();
+                await controller.EliminarTarea(id);
+                await Recargar();
+            }
+
+
+
+
         }
     }
 }

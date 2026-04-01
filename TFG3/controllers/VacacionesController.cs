@@ -41,7 +41,7 @@ namespace TFG3.Controllers
             }
         }
 
-        public async Task AprobarVacacion(int id)
+        public async Task AprobarVacacion(int id, string idTrabajador)
         {
             try
             {
@@ -51,7 +51,14 @@ namespace TFG3.Controllers
                     .Set(v => v.estado_solicitud, "aprobada")
                     .Set(v => v.fecha_revision, DateTime.Now)
                     .Update();
-                MessageBox.Show("Aprobada correctamente id: " + id);
+
+                NotificacionController notifController = new NotificacionController();
+                await notifController.CrearNotificacion(
+                    idTrabajador,
+                    "Vacaciones aprobadas",
+                    "Tu solicitud de vacaciones ha sido aprobada.",
+                    "vacaciones"
+                );
             }
             catch (Exception ex)
             {
@@ -59,7 +66,7 @@ namespace TFG3.Controllers
             }
         }
 
-        public async Task RechazarVacacion(int id, string motivo)
+        public async Task RechazarVacacion(int id, string motivo, string idTrabajador)
         {
             try
             {
@@ -70,16 +77,19 @@ namespace TFG3.Controllers
                     .Set(v => v.motivo_rechazo, motivo)
                     .Set(v => v.fecha_revision, DateTime.Now)
                     .Update();
+
+                NotificacionController notifController = new NotificacionController();
+                await notifController.CrearNotificacion(
+                    idTrabajador,
+                    "Vacaciones rechazadas",
+                    "Tu solicitud de vacaciones ha sido rechazada. Motivo: " + motivo,
+                    "vacaciones"
+                );
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-
-
-
-
     }
 }

@@ -72,6 +72,16 @@ namespace TFG3.Controllers
                 await SupabaseConexion.Client
                     .From<Tarea>()
                     .Insert(tarea);
+
+                NotificacionController notifController = new NotificacionController();
+                await notifController.CrearNotificacion(
+                    tarea.id_trabajador,
+                    "Nueva tarea asignada",
+                    "Se te ha asignado la tarea: " + tarea.titulo,
+                    "tarea"
+                );
+
+
             }
             catch (Exception ex)
             {

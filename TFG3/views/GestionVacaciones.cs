@@ -54,6 +54,8 @@ namespace TFG3.views
 
                 if (filtroActual == "pendientes" && v.estado_solicitud != "pendiente") continue;
                 if (filtroActual == "aprobadas" && v.estado_solicitud != "aprobada") continue;
+                if (filtroActual == "rechazadas" && v.estado_solicitud != "rechazada") continue;
+
 
                 string nombreEmpleado = "Desconocido";
                 for (int j = 0; j < empleados.Count; j++)
@@ -135,12 +137,12 @@ namespace TFG3.views
 
             if (todasLasVacaciones == null) todasLasVacaciones = new List<Vacaciones>();
             if (empleados == null) empleados = new List<Trabajador>();
-           
+
             Form panelCentral = Application.OpenForms["PanelCentral"];
 
             if (panelCentral != null)
             {
-                await ((PanelCentral)panelCentral).ActualizarBadgeVacaciones();
+                await ((PanelCentral)panelCentral).ActualizarBadgeNotificaciones();
             }
 
 
@@ -149,7 +151,10 @@ namespace TFG3.views
             MostrarVacaciones();
         }
 
-
-
+        private void iconButtonRechazadas_Click(object sender, EventArgs e)
+        {
+            filtroActual = "rechazadas";
+            MostrarVacaciones();
+        }
     }
 }

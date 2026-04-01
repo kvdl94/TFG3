@@ -44,6 +44,7 @@
             Estado = new DataGridViewTextBoxColumn();
             FechLimite = new DataGridViewTextBoxColumn();
             AsinadoPor = new DataGridViewTextBoxColumn();
+            iconButtonEliminar = new FontAwesome.Sharp.IconButton();
             panelSuperior.SuspendLayout();
             panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -52,6 +53,7 @@
             // panelSuperior
             // 
             panelSuperior.BackColor = Color.FromArgb(26, 26, 26);
+            panelSuperior.Controls.Add(iconButtonEliminar);
             panelSuperior.Controls.Add(iconButtonNueva);
             panelSuperior.Controls.Add(iconButtonEnProgreso);
             panelSuperior.Controls.Add(iconButtonPendientes);
@@ -65,14 +67,14 @@
             // 
             // iconButtonNueva
             // 
-            iconButtonNueva.BackColor = Color.FromArgb(212, 5, 17);
-            iconButtonNueva.ForeColor = Color.White;
+            iconButtonNueva.BackColor = Color.FromArgb(0, 192, 0);
+            iconButtonNueva.ForeColor = Color.Black;
             iconButtonNueva.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            iconButtonNueva.IconColor = Color.White;
+            iconButtonNueva.IconColor = Color.Black;
             iconButtonNueva.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonNueva.IconSize = 30;
             iconButtonNueva.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonNueva.Location = new Point(841, 7);
+            iconButtonNueva.Location = new Point(717, 4);
             iconButtonNueva.Name = "iconButtonNueva";
             iconButtonNueva.Size = new Size(103, 48);
             iconButtonNueva.TabIndex = 4;
@@ -90,7 +92,7 @@
             iconButtonEnProgreso.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonEnProgreso.IconSize = 30;
             iconButtonEnProgreso.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonEnProgreso.Location = new Point(695, 9);
+            iconButtonEnProgreso.Location = new Point(566, 3);
             iconButtonEnProgreso.Name = "iconButtonEnProgreso";
             iconButtonEnProgreso.Size = new Size(129, 48);
             iconButtonEnProgreso.TabIndex = 3;
@@ -108,7 +110,7 @@
             iconButtonPendientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonPendientes.IconSize = 30;
             iconButtonPendientes.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonPendientes.Location = new Point(561, 9);
+            iconButtonPendientes.Location = new Point(432, 3);
             iconButtonPendientes.Name = "iconButtonPendientes";
             iconButtonPendientes.Size = new Size(117, 48);
             iconButtonPendientes.TabIndex = 2;
@@ -126,7 +128,7 @@
             iconButtonTodas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonTodas.IconSize = 30;
             iconButtonTodas.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonTodas.Location = new Point(435, 9);
+            iconButtonTodas.Location = new Point(297, 4);
             iconButtonTodas.Name = "iconButtonTodas";
             iconButtonTodas.Size = new Size(107, 46);
             iconButtonTodas.TabIndex = 1;
@@ -246,6 +248,24 @@
             AsinadoPor.ReadOnly = true;
             AsinadoPor.Width = 175;
             // 
+            // iconButtonEliminar
+            // 
+            iconButtonEliminar.BackColor = Color.Red;
+            iconButtonEliminar.ForeColor = Color.White;
+            iconButtonEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            iconButtonEliminar.IconColor = Color.White;
+            iconButtonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonEliminar.IconSize = 30;
+            iconButtonEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonEliminar.Location = new Point(844, 4);
+            iconButtonEliminar.Name = "iconButtonEliminar";
+            iconButtonEliminar.Size = new Size(103, 48);
+            iconButtonEliminar.TabIndex = 5;
+            iconButtonEliminar.Text = "Eliminar";
+            iconButtonEliminar.TextAlign = ContentAlignment.MiddleRight;
+            iconButtonEliminar.UseVisualStyleBackColor = false;
+            iconButtonEliminar.Click += iconButtonEliminar_Click;
+            // 
             // GestionTareas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -279,5 +299,6 @@
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn FechLimite;
         private DataGridViewTextBoxColumn AsinadoPor;
+        private FontAwesome.Sharp.IconButton iconButtonEliminar;
     }
 }

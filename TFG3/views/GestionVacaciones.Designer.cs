@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
             iconButtonAprobadas = new FontAwesome.Sharp.IconButton();
             iconButtonPendientes = new FontAwesome.Sharp.IconButton();
@@ -42,6 +42,7 @@
             FechaFin = new DataGridViewTextBoxColumn();
             Dias = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            iconButtonRechazadas = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -50,6 +51,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 26, 26);
+            panel1.Controls.Add(iconButtonRechazadas);
             panel1.Controls.Add(iconButtonAprobadas);
             panel1.Controls.Add(iconButtonPendientes);
             panel1.Controls.Add(iconButtonTodas);
@@ -63,9 +65,9 @@
             // iconButtonAprobadas
             // 
             iconButtonAprobadas.BackColor = Color.FromArgb(42, 42, 42);
-            iconButtonAprobadas.ForeColor = Color.FromArgb(136, 136, 136);
+            iconButtonAprobadas.ForeColor = Color.FromArgb(0, 192, 0);
             iconButtonAprobadas.IconChar = FontAwesome.Sharp.IconChar.Check;
-            iconButtonAprobadas.IconColor = Color.FromArgb(136, 136, 136);
+            iconButtonAprobadas.IconColor = Color.FromArgb(0, 192, 0);
             iconButtonAprobadas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonAprobadas.IconSize = 30;
             iconButtonAprobadas.ImageAlign = ContentAlignment.MiddleLeft;
@@ -139,24 +141,24 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(26, 26, 26);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(200, 160, 64);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(26, 26, 26);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(200, 160, 64);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Empleado, FechaInicio, FechaFin, Dias, Estado });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(0, 0);
@@ -217,6 +219,24 @@
             Estado.SortMode = DataGridViewColumnSortMode.NotSortable;
             Estado.Width = 125;
             // 
+            // iconButtonRechazadas
+            // 
+            iconButtonRechazadas.BackColor = Color.FromArgb(42, 42, 42);
+            iconButtonRechazadas.ForeColor = Color.Red;
+            iconButtonRechazadas.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            iconButtonRechazadas.IconColor = Color.Red;
+            iconButtonRechazadas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonRechazadas.IconSize = 30;
+            iconButtonRechazadas.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonRechazadas.Location = new Point(858, 8);
+            iconButtonRechazadas.Name = "iconButtonRechazadas";
+            iconButtonRechazadas.Size = new Size(127, 34);
+            iconButtonRechazadas.TabIndex = 4;
+            iconButtonRechazadas.Text = "Rechazadas";
+            iconButtonRechazadas.TextAlign = ContentAlignment.MiddleRight;
+            iconButtonRechazadas.UseVisualStyleBackColor = false;
+            iconButtonRechazadas.Click += iconButtonRechazadas_Click;
+            // 
             // GestionVacaciones
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -248,5 +268,6 @@
         private DataGridViewTextBoxColumn FechaFin;
         private DataGridViewTextBoxColumn Dias;
         private DataGridViewTextBoxColumn Estado;
+        private FontAwesome.Sharp.IconButton iconButtonRechazadas;
     }
 }
