@@ -13,6 +13,10 @@ namespace TFG3.Modelo
         [Column("id_trabajador")]
         public string id_trabajador { get; set; }
 
+        [Column("id_remitente")]
+        public string? id_remitente { get; set; }
+
+
         [Column("titulo")]
         public string titulo { get; set; }
 

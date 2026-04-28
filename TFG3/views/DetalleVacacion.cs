@@ -133,12 +133,11 @@ namespace TFG3.views
             VacacionesController controller = new VacacionesController();
             await controller.AprobarVacacion(vacacion.id, vacacion.id_trabajador);
 
-            // Calcular días y descontarlos
             if (vacacion.fecha_inicio.HasValue && vacacion.fecha_fin.HasValue)
             {
                 int dias = (int)(vacacion.fecha_fin.Value - vacacion.fecha_inicio.Value).TotalDays + 1;
 
-                // Buscar el empleado y restarle los días
+                
                 Trabajador empleado = empleados.Find(t => t.id == vacacion.id_trabajador);
                 if (empleado != null)
                 {

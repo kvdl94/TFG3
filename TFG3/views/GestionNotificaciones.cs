@@ -9,8 +9,9 @@ namespace TFG3.views
 {
     public partial class GestionNotificaciones : UserControl
     {
-        private List<Notificacion> notificaciones = new List<Notificacion>();
+        private List<Notificacion> todasLasNotificaciones = new List<Notificacion>();
         private List<Trabajador> empleados = new List<Trabajador>();
+        private string filtroActual = "todas";
 
         public GestionNotificaciones()
         {
@@ -29,20 +30,13 @@ namespace TFG3.views
                 NotificacionController notifController = new NotificacionController();
                 TrabajadorController trabController = new TrabajadorController();
 
-                notificaciones = await notifController.ObtenerTodas();
+                todasLasNotificaciones = await notifController.ObtenerTodas();
                 empleados = await trabController.ObtenerTodosLosTrabajadores();
 
-                if (notificaciones == null) notificaciones = new List<Notificacion>();
+                if (todasLasNotificaciones == null) todasLasNotificaciones = new List<Notificacion>();
                 if (empleados == null) empleados = new List<Trabajador>();
 
-                int sinLeer = 0;
-                for (int i = 0; i < notificaciones.Count; i++)
-                {
-                    if (notificaciones[i].leido == false) sinLeer++;
-                }
-                labelBadge.Text = sinLeer + " sin leer";
-                labelBadge.Visible = sinLeer > 0;
-
+                ActualizarBadge();
                 MostrarNotificaciones();
             }
             catch (Exception ex)
@@ -51,124 +45,124 @@ namespace TFG3.views
             }
         }
 
+        private void ActualizarBadge()
+        {
+            int sinLeer = 0;
+            for (int i = 0; i < todasLasNotificaciones.Count; i++)
+            {
+                if (!todasLasNotificaciones[i].leido) sinLeer++;
+            }
+            labelBadge.Text = sinLeer + " sin leer";
+            labelBadge.Visible = sinLeer > 0;
+        }
+
         private void MostrarNotificaciones()
         {
-            panelLista.Controls.Clear();
-            int yPos = 5;
+            dataGridView1.Rows.Clear();
 
-            for (int i = 0; i < notificaciones.Count; i++)
+            for (int i = 0; i < todasLasNotificaciones.Count; i++)
             {
-                Notificacion n = notificaciones[i];
+                Notificacion n = todasLasNotificaciones[i];
 
+                if (filtroActual == "tareas" && n.tipo != "tarea") continue;
+                if (filtroActual == "vacaciones" && n.tipo != "vacaciones") continue;
+                if (filtroActual == "fichajes" && n.tipo != "fichaje") continue;
+
+                // Busca el remitente (quien envió la notificación)
                 string nombreEmpleado = "Desconocido";
-                string iniciales = "??";
-                for (int j = 0; j < empleados.Count; j++)
+                bool encontrado = false;
+
+                for (int j = 0; j < empleados.Count && !encontrado; j++)
                 {
-                    if (empleados[j].id == n.id_trabajador)
+                    if (!string.IsNullOrEmpty(n.id_remitente) && empleados[j].id == n.id_remitente)
                     {
                         nombreEmpleado = empleados[j].nombre + " " + empleados[j].apellidos;
-                        iniciales = empleados[j].nombre[0].ToString() + empleados[j].apellidos[0].ToString();
-                        break;
+                        encontrado = true;
                     }
                 }
 
-                Panel fila = new Panel();
-                fila.Size = new Size(panelLista.ClientSize.Width - 15, 60);
-                fila.Location = new Point(5, yPos);
-                fila.BackColor = n.leido ? Color.White : Color.FromArgb(255, 253, 245);
-                fila.Cursor = Cursors.Hand;
-
-                // Borde izquierdo por tipo
-                Panel bordeIzq = new Panel();
-                bordeIzq.Size = new Size(4, 60);
-                bordeIzq.Location = new Point(0, 0);
-                bordeIzq.BackColor = ObtenerColorTipo(n.tipo);
-                fila.Controls.Add(bordeIzq);
-
-                // Avatar
-                Panel avatar = new Panel();
-                avatar.Size = new Size(36, 36);
-                avatar.Location = new Point(14, 12);
-                avatar.BackColor = ObtenerColorFondoTipo(n.tipo);
-
-                Label lblIniciales = new Label();
-                lblIniciales.Text = iniciales.ToUpper();
-                lblIniciales.ForeColor = ObtenerColorTipo(n.tipo);
-                lblIniciales.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                lblIniciales.TextAlign = ContentAlignment.MiddleCenter;
-                lblIniciales.Dock = DockStyle.Fill;
-                avatar.Controls.Add(lblIniciales);
-                fila.Controls.Add(avatar);
-
-                // Título
-                Label lblTitulo = new Label();
-                lblTitulo.Text = n.titulo;
-                lblTitulo.ForeColor = Color.FromArgb(51, 51, 51);
-                lblTitulo.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-                lblTitulo.Location = new Point(58, 10);
-                lblTitulo.AutoSize = true;
-                fila.Controls.Add(lblTitulo);
-
-                // Mensaje
-                Label lblMensaje = new Label();
-                lblMensaje.Text = n.mensaje;
-                lblMensaje.ForeColor = Color.FromArgb(136, 136, 136);
-                lblMensaje.Font = new Font("Segoe UI", 8);
-                lblMensaje.Location = new Point(58, 28);
-                lblMensaje.Size = new Size(panelLista.Width - 150, 16);
-                fila.Controls.Add(lblMensaje);
-
-                // Fecha
-                Label lblFecha = new Label();
-                lblFecha.Text = n.fecha.HasValue ? n.fecha.Value.ToString("dd/MM HH:mm") : "-";
-                lblFecha.ForeColor = Color.FromArgb(136, 136, 136);
-                lblFecha.Font = new Font("Segoe UI", 8);
-                lblFecha.Location = new Point(58, 44);
-                lblFecha.AutoSize = true;
-                fila.Controls.Add(lblFecha);
-
-                // Punto sin leer
-                if (!n.leido)
+                
+                if (!encontrado)
                 {
-                    Panel punto = new Panel();
-                    punto.Size = new Size(8, 8);
-                    punto.Location = new Point(fila.Width - 20, 26);
-                    punto.BackColor = Color.FromArgb(212, 5, 17);
-                    fila.Controls.Add(punto);
+                    for (int j = 0; j < empleados.Count && !encontrado; j++)
+                    {
+                        if (empleados[j].id == n.id_trabajador)
+                        {
+                            nombreEmpleado = empleados[j].nombre + " " + empleados[j].apellidos;
+                            encontrado = true;
+                        }
+                    }
                 }
 
-                // Click para marcar como leída
-                int notifId = n.id;
-                fila.Click += async (s, e) =>
-                {
-                    NotificacionController controller = new NotificacionController();
-                    await controller.MarcarComoLeida(notifId);
-                    CargarDatos();
-                };
+                string fecha = n.fecha.HasValue ? n.fecha.Value.ToString("dd/MM HH:mm") : "-";
+                string leida = n.leido ? "Sí" : "No";
+                string punto = n.leido ? "" : "●";
 
-                panelLista.Controls.Add(fila);
-                yPos += 65;
+                int fila = dataGridView1.Rows.Add(
+                    punto,
+                    n.titulo,
+                    nombreEmpleado,
+                    n.tipo,
+                    fecha,
+                    leida
+                );
+
+                dataGridView1.Rows[fila].Tag = n.id;
+
+                if (!n.leido)
+                {
+                    dataGridView1.Rows[fila].DefaultCellStyle.BackColor = Color.FromArgb(255, 253, 245);
+                    dataGridView1.Rows[fila].DefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+
+                    dataGridView1.Rows[fila].Cells["SinLeer"].Style.ForeColor = Color.FromArgb(212, 5, 17);
+                    dataGridView1.Rows[fila].Cells["SinLeer"].Style.SelectionForeColor = Color.FromArgb(212, 5, 17);
+                    dataGridView1.Rows[fila].Cells["SinLeer"].Style.Font = new Font("Segoe UI", 10);
+                }
+
+                Color colorTipo = Color.FromArgb(100, 100, 100);
+                if (n.tipo == "tarea") colorTipo = Color.FromArgb(24, 95, 165);
+                if (n.tipo == "vacaciones") colorTipo = Color.FromArgb(21, 87, 36);
+                if (n.tipo == "fichaje") colorTipo = Color.FromArgb(200, 160, 64);
+                dataGridView1.Rows[fila].Cells["Tipo"].Style.ForeColor = colorTipo;
+
+                Color colorLeida = n.leido ? Color.FromArgb(21, 87, 36) : Color.FromArgb(170, 170, 170);
+                dataGridView1.Rows[fila].Cells["Leida"].Style.ForeColor = colorLeida;
             }
         }
 
-        private Color ObtenerColorTipo(string tipo)
+        private void btnTodas_Click(object sender, EventArgs e)
         {
-            if (tipo == "vacaciones") return Color.FromArgb(212, 5, 17);
-            if (tipo == "tarea") return Color.FromArgb(24, 95, 165);
-            if (tipo == "fichaje") return Color.FromArgb(200, 160, 64);
-            if (tipo == "alerta") return Color.FromArgb(212, 5, 17);
-            return Color.FromArgb(136, 136, 136);
+            filtroActual = "todas";
+            MostrarNotificaciones();
         }
 
-        private Color ObtenerColorFondoTipo(string tipo)
+        private void btnTareas_Click(object sender, EventArgs e)
         {
-            if (tipo == "vacaciones") return Color.FromArgb(248, 215, 218);
-            if (tipo == "tarea") return Color.FromArgb(204, 229, 255);
-            if (tipo == "fichaje") return Color.FromArgb(255, 243, 205);
-            if (tipo == "alerta") return Color.FromArgb(248, 215, 218);
-            return Color.FromArgb(240, 240, 240);
+            filtroActual = "tareas";
+            MostrarNotificaciones();
         }
 
-       
+        private void btnVacaciones_Click(object sender, EventArgs e)
+        {
+            filtroActual = "vacaciones";
+            MostrarNotificaciones();
+        }
+
+        private void btnFichajes_Click(object sender, EventArgs e)
+        {
+            filtroActual = "fichajes";
+            MostrarNotificaciones();
+        }
+
+        private async void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            int id = (int)dataGridView1.Rows[e.RowIndex].Tag;
+
+            NotificacionController controller = new NotificacionController();
+            await controller.MarcarComoLeida(id);
+            CargarDatos();
+        }
     }
 }

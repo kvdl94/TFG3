@@ -34,17 +34,17 @@ namespace TFG3.Controllers
             }
         }
 
-        public async Task CrearNotificacion(string idTrabajador, string titulo, string mensaje, string tipo)
+        public async Task CrearNotificacion(string idTrabajador, string titulo, string mensaje, string tipo, string idRemitente = null)
         {
             try
             {
                 Notificacion nueva = new Notificacion();
                 nueva.id_trabajador = idTrabajador;
+                nueva.id_remitente = idRemitente;  // AÑADE
                 nueva.titulo = titulo;
                 nueva.mensaje = mensaje;
                 nueva.tipo = tipo;
                 nueva.leido = false;
-
                 await SupabaseConexion.Client
                     .From<Notificacion>()
                     .Insert(nueva);
@@ -54,7 +54,6 @@ namespace TFG3.Controllers
                 System.Windows.Forms.MessageBox.Show("Error notificacion: " + ex.Message);
             }
         }
-
         public async Task MarcarComoLeida(int id)
         {
             try
