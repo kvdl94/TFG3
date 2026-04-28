@@ -78,7 +78,7 @@ namespace TFG3.views
 
                 dataGridView1.Rows.Add(nombreEmpleado, fechaInicio, fechaFin, dias + " días", v.estado_solicitud);
 
-                // Color del estado
+                
                 Color colorEstado = Color.FromArgb(51, 51, 51);
                 if (v.estado_solicitud == "pendiente") colorEstado = Color.FromArgb(133, 100, 4);
                 if (v.estado_solicitud == "aprobada") colorEstado = Color.FromArgb(21, 87, 36);

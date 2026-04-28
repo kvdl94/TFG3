@@ -20,36 +20,14 @@ namespace TFG3.views
         public PanelCentral()
         {
             InitializeComponent();
-            // Quitamos AjustarBotones() para que mande el diseño del editor
+           
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
 
 
-        private void AjustarBotones()
-        {
-            // Asegúrate de que el panel tenga el tamaño real antes de calcular
-            panel1.PerformLayout();
-
-            // Restamos el logo y el título. 
-            // No restes iconButton6 aquí si vas a incluirlo en la división por 8 (o el número total de botones)
-            int altoDisponible = panel1.Height - pictureBox2.Height - bigLabel1.Height - 40; // 40 de margen extra
-
-            // Tienes 8 elementos (Inicio, Empleados, Gemini, Vacaciones, Tareas, Notif, Mensajes, Salir)
-            int altoPorBoton = altoDisponible / 8;
-
-            // Aplicar a todos por igual
-            iconButton1.Height = altoPorBoton;
-            iconButton2.Height = altoPorBoton;
-            iconButtonGemini.Height = altoPorBoton; // ¡Faltaba este en tu lista!
-            iconButton3.Height = altoPorBoton;
-            iconButton4.Height = altoPorBoton;
-            iconButton5.Height = altoPorBoton;
-            iconButton7.Height = altoPorBoton;
-            iconButton6.Height = altoPorBoton; // El de salir también
-        }
-
+      
 
         private void iconButton6_Click_1(object sender, EventArgs e)
         {

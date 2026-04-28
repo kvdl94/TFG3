@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             panelSuperior = new Panel();
+            iconButtonEliminar = new FontAwesome.Sharp.IconButton();
             iconButtonNueva = new FontAwesome.Sharp.IconButton();
             iconButtonEnProgreso = new FontAwesome.Sharp.IconButton();
             iconButtonPendientes = new FontAwesome.Sharp.IconButton();
@@ -44,15 +47,19 @@
             Estado = new DataGridViewTextBoxColumn();
             FechLimite = new DataGridViewTextBoxColumn();
             AsinadoPor = new DataGridViewTextBoxColumn();
-            iconButtonEliminar = new FontAwesome.Sharp.IconButton();
+            hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             panelSuperior.SuspendLayout();
             panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelSuperior
             // 
             panelSuperior.BackColor = Color.FromArgb(26, 26, 26);
+            panelSuperior.Controls.Add(iconPictureBox1);
+            panelSuperior.Controls.Add(hopeTextBox2);
             panelSuperior.Controls.Add(iconButtonEliminar);
             panelSuperior.Controls.Add(iconButtonNueva);
             panelSuperior.Controls.Add(iconButtonEnProgreso);
@@ -62,8 +69,26 @@
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(965, 55);
+            panelSuperior.Size = new Size(1193, 113);
             panelSuperior.TabIndex = 0;
+            // 
+            // iconButtonEliminar
+            // 
+            iconButtonEliminar.BackColor = Color.Red;
+            iconButtonEliminar.ForeColor = Color.White;
+            iconButtonEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            iconButtonEliminar.IconColor = Color.White;
+            iconButtonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonEliminar.IconSize = 30;
+            iconButtonEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonEliminar.Location = new Point(1038, 7);
+            iconButtonEliminar.Name = "iconButtonEliminar";
+            iconButtonEliminar.Size = new Size(103, 48);
+            iconButtonEliminar.TabIndex = 5;
+            iconButtonEliminar.Text = "Eliminar";
+            iconButtonEliminar.TextAlign = ContentAlignment.MiddleRight;
+            iconButtonEliminar.UseVisualStyleBackColor = false;
+            iconButtonEliminar.Click += iconButtonEliminar_Click;
             // 
             // iconButtonNueva
             // 
@@ -74,7 +99,7 @@
             iconButtonNueva.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonNueva.IconSize = 30;
             iconButtonNueva.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonNueva.Location = new Point(717, 4);
+            iconButtonNueva.Location = new Point(929, 7);
             iconButtonNueva.Name = "iconButtonNueva";
             iconButtonNueva.Size = new Size(103, 48);
             iconButtonNueva.TabIndex = 4;
@@ -86,13 +111,13 @@
             // iconButtonEnProgreso
             // 
             iconButtonEnProgreso.BackColor = Color.FromArgb(42, 42, 42);
-            iconButtonEnProgreso.ForeColor = Color.FromArgb(136, 136, 136);
+            iconButtonEnProgreso.ForeColor = Color.White;
             iconButtonEnProgreso.IconChar = FontAwesome.Sharp.IconChar.Spinner;
-            iconButtonEnProgreso.IconColor = Color.FromArgb(136, 136, 136);
+            iconButtonEnProgreso.IconColor = Color.White;
             iconButtonEnProgreso.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonEnProgreso.IconSize = 30;
             iconButtonEnProgreso.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonEnProgreso.Location = new Point(566, 3);
+            iconButtonEnProgreso.Location = new Point(785, 7);
             iconButtonEnProgreso.Name = "iconButtonEnProgreso";
             iconButtonEnProgreso.Size = new Size(129, 48);
             iconButtonEnProgreso.TabIndex = 3;
@@ -104,13 +129,13 @@
             // iconButtonPendientes
             // 
             iconButtonPendientes.BackColor = Color.FromArgb(42, 42, 42);
-            iconButtonPendientes.ForeColor = Color.FromArgb(136, 136, 136);
+            iconButtonPendientes.ForeColor = Color.White;
             iconButtonPendientes.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
-            iconButtonPendientes.IconColor = Color.FromArgb(136, 136, 136);
+            iconButtonPendientes.IconColor = Color.White;
             iconButtonPendientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonPendientes.IconSize = 30;
             iconButtonPendientes.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonPendientes.Location = new Point(432, 3);
+            iconButtonPendientes.Location = new Point(651, 7);
             iconButtonPendientes.Name = "iconButtonPendientes";
             iconButtonPendientes.Size = new Size(117, 48);
             iconButtonPendientes.TabIndex = 2;
@@ -128,7 +153,7 @@
             iconButtonTodas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonTodas.IconSize = 30;
             iconButtonTodas.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonTodas.Location = new Point(297, 4);
+            iconButtonTodas.Location = new Point(527, 9);
             iconButtonTodas.Name = "iconButtonTodas";
             iconButtonTodas.Size = new Size(107, 46);
             iconButtonTodas.TabIndex = 1;
@@ -152,44 +177,56 @@
             // 
             panelInferior.Controls.Add(dataGridView1);
             panelInferior.Dock = DockStyle.Fill;
-            panelInferior.Location = new Point(0, 55);
+            panelInferior.Location = new Point(0, 113);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(965, 537);
+            panelInferior.Size = new Size(1193, 493);
             panelInferior.TabIndex = 1;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle13.BackColor = SystemColors.ControlLight;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(26, 26, 26);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(200, 160, 64);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = Color.FromArgb(26, 26, 26);
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle14.ForeColor = Color.FromArgb(200, 160, 64);
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Titulo, Empleado, Prioridad, Estado, FechLimite, AsinadoPor });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = Color.White;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.White;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle16.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(965, 537);
+            dataGridView1.Size = new Size(1193, 493);
             dataGridView1.TabIndex = 0;
             // 
             // Titulo
@@ -200,7 +237,7 @@
             Titulo.Name = "Titulo";
             Titulo.ReadOnly = true;
             Titulo.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Titulo.Width = 175;
+            Titulo.Width = 250;
             // 
             // Empleado
             // 
@@ -209,7 +246,7 @@
             Empleado.Name = "Empleado";
             Empleado.ReadOnly = true;
             Empleado.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Empleado.Width = 175;
+            Empleado.Width = 250;
             // 
             // Prioridad
             // 
@@ -246,25 +283,45 @@
             AsinadoPor.MinimumWidth = 6;
             AsinadoPor.Name = "AsinadoPor";
             AsinadoPor.ReadOnly = true;
-            AsinadoPor.Width = 175;
+            AsinadoPor.Width = 250;
             // 
-            // iconButtonEliminar
+            // hopeTextBox2
             // 
-            iconButtonEliminar.BackColor = Color.Red;
-            iconButtonEliminar.ForeColor = Color.White;
-            iconButtonEliminar.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            iconButtonEliminar.IconColor = Color.White;
-            iconButtonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButtonEliminar.IconSize = 30;
-            iconButtonEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonEliminar.Location = new Point(844, 4);
-            iconButtonEliminar.Name = "iconButtonEliminar";
-            iconButtonEliminar.Size = new Size(103, 48);
-            iconButtonEliminar.TabIndex = 5;
-            iconButtonEliminar.Text = "Eliminar";
-            iconButtonEliminar.TextAlign = ContentAlignment.MiddleRight;
-            iconButtonEliminar.UseVisualStyleBackColor = false;
-            iconButtonEliminar.Click += iconButtonEliminar_Click;
+            hopeTextBox2.BackColor = Color.FromArgb(42, 42, 42);
+            hopeTextBox2.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox2.BorderColorA = Color.FromArgb(200, 160, 64);
+            hopeTextBox2.BorderColorB = Color.FromArgb(200, 160, 64);
+            hopeTextBox2.Font = new Font("Segoe UI", 12F);
+            hopeTextBox2.ForeColor = Color.White;
+            hopeTextBox2.Hint = "Buscador ...";
+            hopeTextBox2.Location = new Point(16, 49);
+            hopeTextBox2.MaxLength = 32767;
+            hopeTextBox2.Multiline = false;
+            hopeTextBox2.Name = "hopeTextBox2";
+            hopeTextBox2.PasswordChar = '\0';
+            hopeTextBox2.ScrollBars = ScrollBars.None;
+            hopeTextBox2.SelectedText = "";
+            hopeTextBox2.SelectionLength = 0;
+            hopeTextBox2.SelectionStart = 0;
+            hopeTextBox2.Size = new Size(244, 43);
+            hopeTextBox2.TabIndex = 7;
+            hopeTextBox2.TabStop = false;
+            hopeTextBox2.UseSystemPasswordChar = false;
+            hopeTextBox2.TextChanged += hopeTextBox2_TextChanged;
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = Color.FromArgb(42, 42, 42);
+            iconPictureBox1.ForeColor = Color.FromArgb(200, 160, 64);
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            iconPictureBox1.IconColor = Color.FromArgb(200, 160, 64);
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 40;
+            iconPictureBox1.Location = new Point(278, 52);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(40, 40);
+            iconPictureBox1.TabIndex = 8;
+            iconPictureBox1.TabStop = false;
             // 
             // GestionTareas
             // 
@@ -274,12 +331,13 @@
             Controls.Add(panelInferior);
             Controls.Add(panelSuperior);
             Name = "GestionTareas";
-            Size = new Size(965, 592);
+            Size = new Size(1193, 606);
             Load += GestionTareas_Load;
             panelSuperior.ResumeLayout(false);
             panelSuperior.PerformLayout();
             panelInferior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -293,12 +351,14 @@
         private FontAwesome.Sharp.IconButton iconButtonEnProgreso;
         private Panel panelInferior;
         private DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconButton iconButtonEliminar;
         private DataGridViewTextBoxColumn Titulo;
         private DataGridViewTextBoxColumn Empleado;
         private DataGridViewTextBoxColumn Prioridad;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn FechLimite;
         private DataGridViewTextBoxColumn AsinadoPor;
-        private FontAwesome.Sharp.IconButton iconButtonEliminar;
+        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

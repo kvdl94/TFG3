@@ -35,11 +35,11 @@ namespace TFG3.views
             todasLasVacaciones = await vacController.ObtenerTodas();
             empleados = await trabController.ObtenerTodosLosTrabajadores();
 
-            // Panel superior
+           
             labelNombre.Text = nombreEmpleado;
             
 
-            // Estado
+           
             if (vacacion.estado_solicitud == "pendiente")
             {
                 labelEstado.Text = "PENDIENTE";
@@ -75,10 +75,9 @@ namespace TFG3.views
             }
             labelDias.Text = dias + " días";
 
-            // Motivo
             labelMotivo.Text = vacacion.motivo ?? "Sin motivo";
 
-            // Disponibilidad
+            
             int empleadosDeVacaciones = 0;
             int totalEmpleados = empleados.Count;
 
@@ -133,6 +132,24 @@ namespace TFG3.views
         {
             VacacionesController controller = new VacacionesController();
             await controller.AprobarVacacion(vacacion.id, vacacion.id_trabajador);
+
+            // Calcular días y descontarlos
+            if (vacacion.fecha_inicio.HasValue && vacacion.fecha_fin.HasValue)
+            {
+                int dias = (int)(vacacion.fecha_fin.Value - vacacion.fecha_inicio.Value).TotalDays + 1;
+
+                // Buscar el empleado y restarle los días
+                Trabajador empleado = empleados.Find(t => t.id == vacacion.id_trabajador);
+                if (empleado != null)
+                {
+                    int nuevoDias = (empleado.dias_vacaciones ?? 0) - dias;
+                    if (nuevoDias < 0) nuevoDias = 0;
+
+                    TrabajadorController trabController = new TrabajadorController();
+                    await trabController.ActualizarDiasVacaciones(vacacion.id_trabajador, nuevoDias);
+                }
+            }
+
             await gestionVacaciones.Recargar();
             this.Close();
         }

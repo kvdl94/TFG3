@@ -41,7 +41,13 @@ namespace TFG3.views
                 sb.AppendLine();
                 sb.AppendLine("FICHAJES:");
                 foreach (var f in fichajes)
-                    sb.AppendLine($"- Trabajador ID: {f.id_trabajador} | Fecha: {f.fecha} | Entrada: {f.hora_entrada} | Salida: {f.hora_salida} | Tipo: {f.tipo}");
+                {
+                    
+                    var emp = trabajadores.FirstOrDefault(t => t.id == f.id_trabajador);
+                    string nombreCompleto = emp != null ? $"{emp.nombre} {emp.apellidos}" : "Desconocido";
+
+                    sb.AppendLine($"- Empleado: {nombreCompleto} | Fecha: {f.fecha:dd/MM/yyyy} | Entrada Real: {f.hora_entrada} | ID Depto: {emp?.id_departamento}");
+                }
 
                 sb.AppendLine();
                 sb.AppendLine("VACACIONES:");
@@ -65,7 +71,7 @@ namespace TFG3.views
             richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(200, 160, 64);
             richTextBox1.AppendText("Tú: " + pregunta + "\n");
             richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(136, 136, 136);
-            richTextBox1.AppendText("Gemini: Pensando...\n\n");
+            richTextBox1.AppendText("Grok: Pensando...\n\n");
 
             string contexto = await ObtenerContextoSupabase();
 

@@ -29,22 +29,18 @@ namespace TFG3.views
 
         private async Task CargarDatos()
         {
-            // Datos del empleado en panel superior
+            
             labelNombre.Text = trabajador.nombre + " " + trabajador.apellidos;
             labelDepartamento.Text = departamento.nombre_dep + " · " + trabajador.rol;
             labelMes.Text = DateTime.Now.ToString("MMMM yyyy").ToUpper();
 
-            // Iniciales en pictureBox
             string iniciales = trabajador.nombre[0].ToString() + trabajador.apellidos[0].ToString();
-            // Las iniciales las ponemos con un label encima del pictureBox
-
-            // Cargar fichajes del último mes
+            
             FichajeController controller = new FichajeController();
             fichajes = await controller.ObtenerFichajesPorEmpleado(trabajador.id);
             MessageBox.Show("ID trabajador: " + trabajador.id);
 
 
-            // Filtrar solo el mes actual
             List<Fichaje> fichajesMes = new List<Fichaje>();
             for (int i = 0; i < fichajes.Count; i++)
             {
@@ -58,7 +54,7 @@ namespace TFG3.views
                 }
             }
 
-            // Calcular estadísticas
+            
             int diasTrabajados = fichajesMes.Count;
             int retrasos = 0;
             int salidasTarde = 0;
@@ -111,7 +107,7 @@ namespace TFG3.views
                 dataGridViewFichajes.Rows[i].Cells["Estado"].Style.ForeColor = colorEstado;
             }
 
-            // Actualizar estadísticas
+           
             labelDias.Text = diasTrabajados.ToString();
             labelRetrasos.Text = retrasos.ToString();
             labelSalidas.Text = salidasTarde.ToString();

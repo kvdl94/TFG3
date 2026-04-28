@@ -8,7 +8,7 @@ namespace TFG3.Controllers
 {
     public class GeminiController
     {
-        private string apiKey = "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";
+        private string apiKey = Secrets.GroqApiKey;
         private static readonly HttpClient client = new HttpClient();
 
         public async Task<string> PreguntarAsync(string contexto, string pregunta)

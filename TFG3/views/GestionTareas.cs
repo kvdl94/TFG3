@@ -48,6 +48,8 @@ namespace TFG3.views
         {
             dataGridView1.Rows.Clear();
 
+            string textoBusqueda = hopeTextBox2.Text.Trim().ToLower();
+
             for (int i = 0; i < todasLasTareas.Count; i++)
             {
                 Tarea t = todasLasTareas[i];
@@ -55,6 +57,7 @@ namespace TFG3.views
                 if (filtroActual == "pendientes" && t.estado != "pendiente") continue;
                 if (filtroActual == "en_progreso" && t.estado != "en_progreso") continue;
 
+                
                 string nombreEmpleado = "Desconocido";
                 for (int j = 0; j < empleados.Count; j++)
                 {
@@ -75,8 +78,20 @@ namespace TFG3.views
                     }
                 }
 
-                string fechaLimite = t.fecha_limite.HasValue ? t.fecha_limite.Value.ToString("dd/MM/yyyy") : "-";
+              
+                if (!string.IsNullOrEmpty(textoBusqueda))
+                {
+                    bool coincide =
+                        t.titulo.ToLower().Contains(textoBusqueda) ||
+                        nombreEmpleado.ToLower().Contains(textoBusqueda) ||
+                        t.prioridad.ToLower().Contains(textoBusqueda) ||
+                        t.estado.ToLower().Contains(textoBusqueda) ||
+                        asignadoPor.ToLower().Contains(textoBusqueda);
 
+                    if (!coincide) continue;
+                }
+
+                string fechaLimite = t.fecha_limite.HasValue ? t.fecha_limite.Value.ToString("dd/MM/yyyy") : "-";
 
                 int fila = dataGridView1.Rows.Add(
                     t.titulo,
@@ -87,14 +102,13 @@ namespace TFG3.views
                     asignadoPor
                 );
                 dataGridView1.Rows[fila].Tag = t.id;
-                // Color prioridad
+
                 Color colorPrioridad = Color.FromArgb(51, 51, 51);
                 if (t.prioridad == "alta") colorPrioridad = Color.FromArgb(114, 28, 36);
                 if (t.prioridad == "media") colorPrioridad = Color.FromArgb(133, 100, 4);
                 if (t.prioridad == "baja") colorPrioridad = Color.FromArgb(21, 87, 36);
                 dataGridView1.Rows[fila].Cells["Prioridad"].Style.ForeColor = colorPrioridad;
 
-                // Color estado
                 Color colorEstado = Color.FromArgb(51, 51, 51);
                 if (t.estado == "pendiente") colorEstado = Color.FromArgb(133, 100, 4);
                 if (t.estado == "en_progreso") colorEstado = Color.FromArgb(0, 64, 133);
@@ -169,6 +183,11 @@ namespace TFG3.views
 
 
 
+        }
+
+        private void hopeTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            MostrarTareas();
         }
     }
 }

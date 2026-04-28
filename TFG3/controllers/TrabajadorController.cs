@@ -147,6 +147,25 @@ namespace TFG3.Controllers
         }
 
 
+        public async Task ActualizarDiasVacaciones(string idTrabajador, int nuevosDias)
+        {
+            try
+            {
+                var client = SupabaseConexion.Client;
+                await client.From<Trabajador>()
+                    .Where(t => t.id == idTrabajador)
+                    .Set(t => t.dias_vacaciones, nuevosDias)
+                    .Update();
+
+                
+            }
+            catch (Exception ex)
+            {
+               
+                MessageBox.Show("Error al actualizar días: " + ex.Message);
+            }
+        }
+
 
 
     }

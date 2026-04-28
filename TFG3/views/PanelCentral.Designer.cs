@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelCentral));
             panel1 = new ReaLTaiizor.Controls.Panel();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
-            iconButton7 = new FontAwesome.Sharp.IconButton();
-            iconButtonGemini = new FontAwesome.Sharp.IconButton();
             iconButton6 = new FontAwesome.Sharp.IconButton();
+            iconButton7 = new FontAwesome.Sharp.IconButton();
             iconButton5 = new FontAwesome.Sharp.IconButton();
             iconButton4 = new FontAwesome.Sharp.IconButton();
             iconButton3 = new FontAwesome.Sharp.IconButton();
+            iconButtonGemini = new FontAwesome.Sharp.IconButton();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             pictureBox2 = new PictureBox();
             panelContenedor = new Panel();
             panel1.SuspendLayout();
@@ -68,58 +68,25 @@
             panel1.TabIndex = 1;
             panel1.Text = "panel1";
             // 
-            // iconButton2
+            // iconButton6
             // 
-            iconButton2.BackColor = Color.FromArgb(42, 42, 42);
-            iconButton2.Dock = DockStyle.Top;
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.ForeColor = Color.FromArgb(170, 170, 170);
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Users;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 24;
-            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(5, 257);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(261, 94);
-            iconButton2.TabIndex = 4;
-            iconButton2.Text = "Empleados";
-            iconButton2.UseVisualStyleBackColor = false;
-            iconButton2.Click += iconButton2_Click;
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.FromArgb(42, 42, 42);
-            iconButton1.Dock = DockStyle.Top;
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.ForeColor = Color.FromArgb(170, 170, 170);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 24;
-            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(5, 163);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(261, 94);
-            iconButton1.TabIndex = 3;
-            iconButton1.Text = "Inicio";
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
-            // bigLabel1
-            // 
-            bigLabel1.BackColor = Color.Transparent;
-            bigLabel1.Dock = DockStyle.Top;
-            bigLabel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            bigLabel1.ForeColor = Color.FromArgb(200, 160, 64);
-            bigLabel1.Location = new Point(5, 106);
-            bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(261, 57);
-            bigLabel1.TabIndex = 9;
-            bigLabel1.Text = "PANEL DE ADMINISTRACIÓN";
-            bigLabel1.TextAlign = ContentAlignment.MiddleCenter;
+            iconButton6.BackColor = Color.FromArgb(42, 42, 42);
+            iconButton6.Dock = DockStyle.Top;
+            iconButton6.FlatAppearance.BorderSize = 0;
+            iconButton6.FlatStyle = FlatStyle.Flat;
+            iconButton6.ForeColor = Color.FromArgb(212, 5, 17);
+            iconButton6.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            iconButton6.IconColor = Color.FromArgb(212, 5, 17);
+            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton6.IconSize = 24;
+            iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton6.Location = new Point(5, 821);
+            iconButton6.Name = "iconButton6";
+            iconButton6.Size = new Size(261, 110);
+            iconButton6.TabIndex = 8;
+            iconButton6.Text = "Salir";
+            iconButton6.UseVisualStyleBackColor = false;
+            iconButton6.Click += iconButton6_Click_1;
             // 
             // iconButton7
             // 
@@ -140,46 +107,6 @@
             iconButton7.Text = "Mensajes";
             iconButton7.UseVisualStyleBackColor = false;
             iconButton7.Click += iconButton7_Click;
-            // 
-            // iconButtonGemini
-            // 
-            iconButtonGemini.BackColor = Color.FromArgb(42, 42, 42);
-            iconButtonGemini.Dock = DockStyle.Top;
-            iconButtonGemini.FlatAppearance.BorderSize = 0;
-            iconButtonGemini.FlatStyle = FlatStyle.Flat;
-            iconButtonGemini.ForeColor = Color.FromArgb(170, 170, 170);
-            iconButtonGemini.IconChar = FontAwesome.Sharp.IconChar.Comment;
-            iconButtonGemini.IconColor = Color.White;
-            iconButtonGemini.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButtonGemini.IconSize = 24;
-            iconButtonGemini.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonGemini.Location = new Point(5, 351);
-            iconButtonGemini.Name = "iconButtonGemini";
-            iconButtonGemini.Size = new Size(261, 94);
-            iconButtonGemini.TabIndex = 10;
-            iconButtonGemini.Text = "Gemini";
-            iconButtonGemini.UseVisualStyleBackColor = false;
-            iconButtonGemini.Click += iconButtonGemini_Click;
-            // 
-            // iconButton6
-            // 
-            iconButton6.BackColor = Color.FromArgb(42, 42, 42);
-            iconButton6.Dock = DockStyle.Top;
-            iconButton6.FlatAppearance.BorderSize = 0;
-            iconButton6.FlatStyle = FlatStyle.Flat;
-            iconButton6.ForeColor = Color.FromArgb(212, 5, 17);
-            iconButton6.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            iconButton6.IconColor = Color.FromArgb(212, 5, 17);
-            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton6.IconSize = 24;
-            iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton6.Location = new Point(5, 821);
-            iconButton6.Name = "iconButton6";
-            iconButton6.Size = new Size(261, 110);
-            iconButton6.TabIndex = 8;
-            iconButton6.Text = "Salir";
-            iconButton6.UseVisualStyleBackColor = false;
-            iconButton6.Click += iconButton6_Click_1;
             // 
             // iconButton5
             // 
@@ -240,6 +167,79 @@
             iconButton3.Text = "Vacaciones";
             iconButton3.UseVisualStyleBackColor = false;
             iconButton3.Click += iconButton3_Click;
+            // 
+            // iconButtonGemini
+            // 
+            iconButtonGemini.BackColor = Color.FromArgb(42, 42, 42);
+            iconButtonGemini.Dock = DockStyle.Top;
+            iconButtonGemini.FlatAppearance.BorderSize = 0;
+            iconButtonGemini.FlatStyle = FlatStyle.Flat;
+            iconButtonGemini.ForeColor = Color.FromArgb(170, 170, 170);
+            iconButtonGemini.IconChar = FontAwesome.Sharp.IconChar.Brain;
+            iconButtonGemini.IconColor = Color.Cyan;
+            iconButtonGemini.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonGemini.IconSize = 24;
+            iconButtonGemini.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonGemini.Location = new Point(5, 351);
+            iconButtonGemini.Name = "iconButtonGemini";
+            iconButtonGemini.Size = new Size(261, 94);
+            iconButtonGemini.TabIndex = 10;
+            iconButtonGemini.Text = "Grok";
+            iconButtonGemini.UseVisualStyleBackColor = false;
+            iconButtonGemini.Click += iconButtonGemini_Click;
+            // 
+            // iconButton2
+            // 
+            iconButton2.BackColor = Color.FromArgb(42, 42, 42);
+            iconButton2.Dock = DockStyle.Top;
+            iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.ForeColor = Color.FromArgb(170, 170, 170);
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Users;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 24;
+            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton2.Location = new Point(5, 257);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(261, 94);
+            iconButton2.TabIndex = 4;
+            iconButton2.Text = "Empleados";
+            iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
+            // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = Color.FromArgb(42, 42, 42);
+            iconButton1.Dock = DockStyle.Top;
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.ForeColor = Color.FromArgb(170, 170, 170);
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.House;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 24;
+            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton1.Location = new Point(5, 163);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(261, 94);
+            iconButton1.TabIndex = 3;
+            iconButton1.Text = "Inicio";
+            iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
+            // 
+            // bigLabel1
+            // 
+            bigLabel1.BackColor = Color.Transparent;
+            bigLabel1.Dock = DockStyle.Top;
+            bigLabel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            bigLabel1.ForeColor = Color.FromArgb(200, 160, 64);
+            bigLabel1.Location = new Point(5, 106);
+            bigLabel1.Name = "bigLabel1";
+            bigLabel1.Size = new Size(261, 57);
+            bigLabel1.TabIndex = 9;
+            bigLabel1.Text = "PANEL DE ADMINISTRACIÓN";
+            bigLabel1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 

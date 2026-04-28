@@ -49,7 +49,7 @@
             panelIA.Dock = DockStyle.Fill;
             panelIA.Location = new Point(0, 0);
             panelIA.Name = "panelIA";
-            panelIA.Size = new Size(718, 538);
+            panelIA.Size = new Size(1215, 782);
             panelIA.TabIndex = 2;
             // 
             // panelInferior
@@ -60,14 +60,14 @@
             panelInferior.Dock = DockStyle.Fill;
             panelInferior.Location = new Point(0, 71);
             panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(718, 467);
+            panelInferior.Size = new Size(1215, 711);
             panelInferior.TabIndex = 5;
             // 
             // richTextBox1
             // 
             richTextBox1.Location = new Point(3, 0);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(712, 408);
+            richTextBox1.Size = new Size(1209, 606);
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "";
             // 
@@ -80,7 +80,7 @@
             hopeTextBoxPregunta.Font = new Font("Segoe UI", 12F);
             hopeTextBoxPregunta.ForeColor = Color.Black;
             hopeTextBoxPregunta.Hint = "Escriba una pregunta...";
-            hopeTextBoxPregunta.Location = new Point(0, 414);
+            hopeTextBoxPregunta.Location = new Point(25, 634);
             hopeTextBoxPregunta.MaxLength = 32767;
             hopeTextBoxPregunta.Multiline = false;
             hopeTextBoxPregunta.Name = "hopeTextBoxPregunta";
@@ -89,7 +89,7 @@
             hopeTextBoxPregunta.SelectedText = "";
             hopeTextBoxPregunta.SelectionLength = 0;
             hopeTextBoxPregunta.SelectionStart = 0;
-            hopeTextBoxPregunta.Size = new Size(272, 43);
+            hopeTextBoxPregunta.Size = new Size(853, 43);
             hopeTextBoxPregunta.TabIndex = 0;
             hopeTextBoxPregunta.TabStop = false;
             hopeTextBoxPregunta.UseSystemPasswordChar = false;
@@ -102,7 +102,7 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 30;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(602, 428);
+            iconButton1.Location = new Point(884, 648);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(113, 29);
             iconButton1.TabIndex = 1;
@@ -119,7 +119,7 @@
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(718, 71);
+            panelSuperior.Size = new Size(1215, 71);
             panelSuperior.TabIndex = 4;
             // 
             // label1
@@ -149,7 +149,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelIA);
             Name = "Gemini";
-            Size = new Size(718, 538);
+            Size = new Size(1215, 782);
             panelIA.ResumeLayout(false);
             panelInferior.ResumeLayout(false);
             panelSuperior.ResumeLayout(false);
