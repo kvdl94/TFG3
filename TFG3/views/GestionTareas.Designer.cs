@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelSuperior = new Panel();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
             iconButtonEliminar = new FontAwesome.Sharp.IconButton();
             iconButtonNueva = new FontAwesome.Sharp.IconButton();
             iconButtonEnProgreso = new FontAwesome.Sharp.IconButton();
@@ -47,12 +49,10 @@
             Estado = new DataGridViewTextBoxColumn();
             FechLimite = new DataGridViewTextBoxColumn();
             AsinadoPor = new DataGridViewTextBoxColumn();
-            hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
-            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             panelSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelSuperior
@@ -71,6 +71,44 @@
             panelSuperior.Name = "panelSuperior";
             panelSuperior.Size = new Size(1193, 113);
             panelSuperior.TabIndex = 0;
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = Color.FromArgb(42, 42, 42);
+            iconPictureBox1.ForeColor = Color.FromArgb(200, 160, 64);
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            iconPictureBox1.IconColor = Color.FromArgb(200, 160, 64);
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 40;
+            iconPictureBox1.Location = new Point(278, 52);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(40, 40);
+            iconPictureBox1.TabIndex = 8;
+            iconPictureBox1.TabStop = false;
+            // 
+            // hopeTextBox2
+            // 
+            hopeTextBox2.BackColor = Color.FromArgb(42, 42, 42);
+            hopeTextBox2.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTextBox2.BorderColorA = Color.FromArgb(200, 160, 64);
+            hopeTextBox2.BorderColorB = Color.FromArgb(200, 160, 64);
+            hopeTextBox2.Font = new Font("Segoe UI", 12F);
+            hopeTextBox2.ForeColor = Color.White;
+            hopeTextBox2.Hint = "Buscador ...";
+            hopeTextBox2.Location = new Point(16, 49);
+            hopeTextBox2.MaxLength = 32767;
+            hopeTextBox2.Multiline = false;
+            hopeTextBox2.Name = "hopeTextBox2";
+            hopeTextBox2.PasswordChar = '\0';
+            hopeTextBox2.ScrollBars = ScrollBars.None;
+            hopeTextBox2.SelectedText = "";
+            hopeTextBox2.SelectionLength = 0;
+            hopeTextBox2.SelectionStart = 0;
+            hopeTextBox2.Size = new Size(244, 43);
+            hopeTextBox2.TabIndex = 7;
+            hopeTextBox2.TabStop = false;
+            hopeTextBox2.UseSystemPasswordChar = false;
+            hopeTextBox2.TextChanged += hopeTextBox2_TextChanged;
             // 
             // iconButtonEliminar
             // 
@@ -186,43 +224,43 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = SystemColors.ControlLight;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLight;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(26, 26, 26);
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle14.ForeColor = Color.FromArgb(200, 160, 64);
-            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(26, 26, 26);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(200, 160, 64);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Titulo, Empleado, Prioridad, Estado, FechLimite, AsinadoPor });
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = Color.White;
-            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle15.ForeColor = Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.White;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle16.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -237,7 +275,7 @@
             Titulo.Name = "Titulo";
             Titulo.ReadOnly = true;
             Titulo.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Titulo.Width = 250;
+            Titulo.Width = 450;
             // 
             // Empleado
             // 
@@ -246,7 +284,7 @@
             Empleado.Name = "Empleado";
             Empleado.ReadOnly = true;
             Empleado.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Empleado.Width = 250;
+            Empleado.Width = 450;
             // 
             // Prioridad
             // 
@@ -285,44 +323,6 @@
             AsinadoPor.ReadOnly = true;
             AsinadoPor.Width = 250;
             // 
-            // hopeTextBox2
-            // 
-            hopeTextBox2.BackColor = Color.FromArgb(42, 42, 42);
-            hopeTextBox2.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTextBox2.BorderColorA = Color.FromArgb(200, 160, 64);
-            hopeTextBox2.BorderColorB = Color.FromArgb(200, 160, 64);
-            hopeTextBox2.Font = new Font("Segoe UI", 12F);
-            hopeTextBox2.ForeColor = Color.White;
-            hopeTextBox2.Hint = "Buscador ...";
-            hopeTextBox2.Location = new Point(16, 49);
-            hopeTextBox2.MaxLength = 32767;
-            hopeTextBox2.Multiline = false;
-            hopeTextBox2.Name = "hopeTextBox2";
-            hopeTextBox2.PasswordChar = '\0';
-            hopeTextBox2.ScrollBars = ScrollBars.None;
-            hopeTextBox2.SelectedText = "";
-            hopeTextBox2.SelectionLength = 0;
-            hopeTextBox2.SelectionStart = 0;
-            hopeTextBox2.Size = new Size(244, 43);
-            hopeTextBox2.TabIndex = 7;
-            hopeTextBox2.TabStop = false;
-            hopeTextBox2.UseSystemPasswordChar = false;
-            hopeTextBox2.TextChanged += hopeTextBox2_TextChanged;
-            // 
-            // iconPictureBox1
-            // 
-            iconPictureBox1.BackColor = Color.FromArgb(42, 42, 42);
-            iconPictureBox1.ForeColor = Color.FromArgb(200, 160, 64);
-            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
-            iconPictureBox1.IconColor = Color.FromArgb(200, 160, 64);
-            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 40;
-            iconPictureBox1.Location = new Point(278, 52);
-            iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(40, 40);
-            iconPictureBox1.TabIndex = 8;
-            iconPictureBox1.TabStop = false;
-            // 
             // GestionTareas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -335,9 +335,9 @@
             Load += GestionTareas_Load;
             panelSuperior.ResumeLayout(false);
             panelSuperior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             panelInferior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -352,13 +352,13 @@
         private Panel panelInferior;
         private DataGridView dataGridView1;
         private FontAwesome.Sharp.IconButton iconButtonEliminar;
+        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private DataGridViewTextBoxColumn Titulo;
         private DataGridViewTextBoxColumn Empleado;
         private DataGridViewTextBoxColumn Prioridad;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn FechLimite;
         private DataGridViewTextBoxColumn AsinadoPor;
-        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }
