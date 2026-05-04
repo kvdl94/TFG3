@@ -74,6 +74,7 @@
             iconButton6.Dock = DockStyle.Top;
             iconButton6.FlatAppearance.BorderSize = 0;
             iconButton6.FlatStyle = FlatStyle.Flat;
+            iconButton6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton6.ForeColor = Color.FromArgb(212, 5, 17);
             iconButton6.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             iconButton6.IconColor = Color.FromArgb(212, 5, 17);
@@ -94,6 +95,7 @@
             iconButton7.Dock = DockStyle.Top;
             iconButton7.FlatAppearance.BorderSize = 0;
             iconButton7.FlatStyle = FlatStyle.Flat;
+            iconButton7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton7.ForeColor = Color.FromArgb(170, 170, 170);
             iconButton7.IconChar = FontAwesome.Sharp.IconChar.Message;
             iconButton7.IconColor = Color.White;
@@ -114,6 +116,7 @@
             iconButton5.Dock = DockStyle.Top;
             iconButton5.FlatAppearance.BorderSize = 0;
             iconButton5.FlatStyle = FlatStyle.Flat;
+            iconButton5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton5.ForeColor = Color.FromArgb(170, 170, 170);
             iconButton5.IconChar = FontAwesome.Sharp.IconChar.Bell;
             iconButton5.IconColor = Color.White;
@@ -134,6 +137,7 @@
             iconButton4.Dock = DockStyle.Top;
             iconButton4.FlatAppearance.BorderSize = 0;
             iconButton4.FlatStyle = FlatStyle.Flat;
+            iconButton4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton4.ForeColor = Color.FromArgb(170, 170, 170);
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
             iconButton4.IconColor = Color.White;
@@ -154,6 +158,7 @@
             iconButton3.Dock = DockStyle.Top;
             iconButton3.FlatAppearance.BorderSize = 0;
             iconButton3.FlatStyle = FlatStyle.Flat;
+            iconButton3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton3.ForeColor = Color.FromArgb(170, 170, 170);
             iconButton3.IconChar = FontAwesome.Sharp.IconChar.UmbrellaBeach;
             iconButton3.IconColor = Color.White;
@@ -174,6 +179,7 @@
             iconButtonGemini.Dock = DockStyle.Top;
             iconButtonGemini.FlatAppearance.BorderSize = 0;
             iconButtonGemini.FlatStyle = FlatStyle.Flat;
+            iconButtonGemini.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButtonGemini.ForeColor = Color.FromArgb(170, 170, 170);
             iconButtonGemini.IconChar = FontAwesome.Sharp.IconChar.Brain;
             iconButtonGemini.IconColor = Color.Cyan;
@@ -194,6 +200,7 @@
             iconButton2.Dock = DockStyle.Top;
             iconButton2.FlatAppearance.BorderSize = 0;
             iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton2.ForeColor = Color.FromArgb(170, 170, 170);
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.Users;
             iconButton2.IconColor = Color.White;
@@ -214,6 +221,7 @@
             iconButton1.Dock = DockStyle.Top;
             iconButton1.FlatAppearance.BorderSize = 0;
             iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             iconButton1.ForeColor = Color.FromArgb(170, 170, 170);
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconButton1.IconColor = Color.White;
@@ -232,7 +240,7 @@
             // 
             bigLabel1.BackColor = Color.Transparent;
             bigLabel1.Dock = DockStyle.Top;
-            bigLabel1.Font = new Font("Segoe UI", 10.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            bigLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bigLabel1.ForeColor = Color.FromArgb(200, 160, 64);
             bigLabel1.Location = new Point(5, 106);
             bigLabel1.Name = "bigLabel1";

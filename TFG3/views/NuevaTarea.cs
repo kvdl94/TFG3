@@ -26,6 +26,7 @@ namespace TFG3.views
             guna2ComboBoxPrioridad.Items.Add("baja");
             guna2ComboBoxPrioridad.Items.Add("media");
             guna2ComboBoxPrioridad.Items.Add("alta");
+            dateTimePicker1.MinDate = DateTime.Today;
         }
 
         private async Task CargarEmpleados()
@@ -47,16 +48,19 @@ namespace TFG3.views
                 MessageBox.Show("El título es obligatorio.");
                 return;
             }
-
             if (hopeComboBoxEmpleado.SelectedIndex < 0)
             {
                 MessageBox.Show("Selecciona un empleado.");
                 return;
             }
-
             if (guna2ComboBoxPrioridad.SelectedItem == null)
             {
                 MessageBox.Show("Selecciona una prioridad.");
+                return;
+            }
+            if (dateTimePicker1.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("La fecha límite no puede ser anterior a hoy.");
                 return;
             }
 
@@ -68,8 +72,6 @@ namespace TFG3.views
             nueva.estado = "pendiente";
             nueva.fecha_limite = dateTimePicker1.Value;
             nueva.asignado_por = TFG3.services.SupabaseConexion.UsuarioActualId;
-
-
 
             TareaController controller = new TareaController();
             await controller.CrearTarea(nueva);

@@ -73,10 +73,12 @@ namespace TFG3.views
                 }
 
                 Color[] colores = {
-                    Color.FromArgb(200, 160, 64),
-                    Color.FromArgb(212, 5, 17),
-                    Color.FromArgb(26, 26, 26),
-                    Color.FromArgb(29, 158, 117)
+                Color.FromArgb(52, 73, 110),
+                Color.FromArgb(52, 73, 110),
+                Color.FromArgb(52, 73, 110),
+                Color.FromArgb(52, 73, 110),
+                Color.FromArgb(52, 73, 110),
+                Color.FromArgb(52, 73, 110)
                 };
 
                 int yPos = 25;
@@ -135,13 +137,12 @@ namespace TFG3.views
                 int maxTareas = Math.Max(Math.Max(tareasPendientes, enProgreso), Math.Max(completadas, canceladas));
                 if (maxTareas == 0) maxTareas = 1;
 
-                string[] estadosTareas = { "Pendiente", "En progreso", "Completada", "Cancelada" };
-                int[] valoresTareas = { tareasPendientes, enProgreso, completadas, canceladas };
+                string[] estadosTareas = { "Pendiente", "En progreso", "Completada"};
+                int[] valoresTareas = { tareasPendientes, enProgreso, completadas };
                 Color[] coloresTareas = {
                     Color.FromArgb(200, 160, 64),
                     Color.FromArgb(24, 95, 165),
-                    Color.FromArgb(29, 158, 117),
-                    Color.FromArgb(212, 5, 17)
+                    Color.FromArgb(29, 158, 117)
                 };
 
                 for (int i = 0; i < estadosTareas.Length; i++)
@@ -152,17 +153,17 @@ namespace TFG3.views
                         ForeColor = Color.FromArgb(136, 136, 136),
                         Font = new Font("Segoe UI", 9),
                         Location = new Point(5, yPos),
-                        Size = new Size(120, 18) // Aumentado para que no se corte "Completada"
+                        Size = new Size(120, 18) 
                     };
                     panelBarras.Controls.Add(labelEstado);
 
                     Panel barraT = new Panel();
-                    int anchoMax2 = panelBarras.Width - 170; // Ajustado para dar espacio al label más largo
+                    int anchoMax2 = panelBarras.Width - 170; 
                     int anchoBarra = (valoresTareas[i] * anchoMax2) / maxTareas;
                     if (anchoBarra < 1) anchoBarra = 1;
 
                     barraT.Size = new Size(anchoBarra, 14);
-                    barraT.Location = new Point(130, yPos + 2); // Movido a la derecha para alinear con departamentos
+                    barraT.Location = new Point(130, yPos + 2); 
                     barraT.BackColor = coloresTareas[i];
                     panelBarras.Controls.Add(barraT);
 

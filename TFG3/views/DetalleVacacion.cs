@@ -64,7 +64,7 @@ namespace TFG3.views
 
             }
 
-            // Fechas
+            
             labelDesde.Text = vacacion.fecha_inicio.HasValue ? vacacion.fecha_inicio.Value.ToString("dd/MM/yyyy") : "-";
             labelHasta.Text = vacacion.fecha_fin.HasValue ? vacacion.fecha_fin.Value.ToString("dd/MM/yyyy") : "-";
 

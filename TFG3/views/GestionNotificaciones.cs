@@ -33,8 +33,10 @@ namespace TFG3.views
                 todasLasNotificaciones = await notifController.ObtenerTodas();
                 empleados = await trabController.ObtenerTodosLosTrabajadores();
 
-                if (todasLasNotificaciones == null) todasLasNotificaciones = new List<Notificacion>();
-                if (empleados == null) empleados = new List<Trabajador>();
+                if (todasLasNotificaciones == null) 
+                  todasLasNotificaciones = new List<Notificacion>();
+                if (empleados == null) 
+                    empleados = new List<Trabajador>();
 
                 ActualizarBadge();
                 MostrarNotificaciones();
@@ -68,7 +70,7 @@ namespace TFG3.views
                 if (filtroActual == "vacaciones" && n.tipo != "vacaciones") continue;
                 if (filtroActual == "fichajes" && n.tipo != "fichaje") continue;
 
-                // Busca el remitente (quien envió la notificación)
+                
                 string nombreEmpleado = "Desconocido";
                 bool encontrado = false;
 
