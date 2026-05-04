@@ -94,6 +94,7 @@ namespace TFG3.views
                     return;
                 }
 
+               
 
 
                 await CargarDepartamentos();
@@ -107,6 +108,15 @@ namespace TFG3.views
                     MessageBox.Show("Rellena todos los campos obligatorios.");
                     return;
                 }
+
+                if (!int.TryParse(hopeTextBoxDiaVacaciones.Text, out int dias) || dias <= 0 || dias > 30)
+                {
+                    MessageBox.Show("Los días de vacaciones deben ser un número entre 1 y 30.");
+                    return;
+                }
+
+
+
             }
 
             pasoActual++;
@@ -148,7 +158,7 @@ namespace TFG3.views
             nuevo.dni = hopeTextBoxDni.Text;
             nuevo.telefono = hopeTextBoxTelefono.Text;
             nuevo.rol = hopeComboBoxRol.SelectedItem.ToString().Trim().ToLower();
-            nuevo.dias_vacaciones = 22;
+            nuevo.dias_vacaciones = int.Parse(hopeTextBoxDiaVacaciones.Text);
             nuevo.activo = true;
             nuevo.created_at = DateTime.Now;
 

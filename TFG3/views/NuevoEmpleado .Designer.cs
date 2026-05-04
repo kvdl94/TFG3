@@ -65,6 +65,8 @@
             hopeTextBoxNombre = new ReaLTaiizor.Controls.HopeTextBox();
             label5 = new Label();
             label3 = new Label();
+            label10 = new Label();
+            label11 = new Label();
             panelSuperior.SuspendLayout();
             panelContenedorBarras.SuspendLayout();
             panelPaso3.SuspendLayout();
@@ -149,9 +151,9 @@
             panelPaso3.Controls.Add(label8);
             panelPaso3.Controls.Add(label7);
             panelPaso3.Dock = DockStyle.Fill;
-            panelPaso3.Location = new Point(0, 80);
+            panelPaso3.Location = new Point(0, 0);
             panelPaso3.Name = "panelPaso3";
-            panelPaso3.Size = new Size(500, 370);
+            panelPaso3.Size = new Size(500, 450);
             panelPaso3.TabIndex = 20;
             panelPaso3.Visible = false;
             // 
@@ -160,7 +162,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 7.8F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(136, 136, 136);
-            label9.Location = new Point(127, 115);
+            label9.Location = new Point(127, 147);
             label9.Name = "label9";
             label9.Size = new Size(131, 17);
             label9.TabIndex = 16;
@@ -198,7 +200,7 @@
             hopeTextBoxContraseña1.Font = new Font("Segoe UI", 12F);
             hopeTextBoxContraseña1.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBoxContraseña1.Hint = "Contraseña...";
-            hopeTextBoxContraseña1.Location = new Point(127, 69);
+            hopeTextBoxContraseña1.Location = new Point(127, 89);
             hopeTextBoxContraseña1.MaxLength = 32767;
             hopeTextBoxContraseña1.Multiline = false;
             hopeTextBoxContraseña1.Name = "hopeTextBoxContraseña1";
@@ -266,6 +268,8 @@
             // 
             // panelPaso2
             // 
+            panelPaso2.Controls.Add(label11);
+            panelPaso2.Controls.Add(label10);
             panelPaso2.Controls.Add(hopeTextBoxDiaVacaciones);
             panelPaso2.Controls.Add(hopeComboBoxDepartamento);
             panelPaso2.Controls.Add(hopeComboBoxRol);
@@ -277,9 +281,9 @@
             panelPaso2.Controls.Add(iconButton2);
             panelPaso2.Controls.Add(iconButton1);
             panelPaso2.Dock = DockStyle.Fill;
-            panelPaso2.Location = new Point(0, 80);
+            panelPaso2.Location = new Point(0, 0);
             panelPaso2.Name = "panelPaso2";
-            panelPaso2.Size = new Size(500, 370);
+            panelPaso2.Size = new Size(500, 450);
             panelPaso2.TabIndex = 10;
             panelPaso2.Visible = false;
             // 
@@ -292,7 +296,7 @@
             hopeTextBoxDiaVacaciones.Font = new Font("Segoe UI", 12F);
             hopeTextBoxDiaVacaciones.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBoxDiaVacaciones.Hint = "22";
-            hopeTextBoxDiaVacaciones.Location = new Point(313, 175);
+            hopeTextBoxDiaVacaciones.Location = new Point(313, 252);
             hopeTextBoxDiaVacaciones.MaxLength = 32767;
             hopeTextBoxDiaVacaciones.Multiline = false;
             hopeTextBoxDiaVacaciones.Name = "hopeTextBoxDiaVacaciones";
@@ -313,7 +317,7 @@
             hopeComboBoxDepartamento.Font = new Font("Segoe UI", 12F);
             hopeComboBoxDepartamento.FormattingEnabled = true;
             hopeComboBoxDepartamento.ItemHeight = 30;
-            hopeComboBoxDepartamento.Location = new Point(23, 182);
+            hopeComboBoxDepartamento.Location = new Point(15, 252);
             hopeComboBoxDepartamento.Name = "hopeComboBoxDepartamento";
             hopeComboBoxDepartamento.Size = new Size(218, 36);
             hopeComboBoxDepartamento.TabIndex = 18;
@@ -326,7 +330,7 @@
             hopeComboBoxRol.FormattingEnabled = true;
             hopeComboBoxRol.ItemHeight = 30;
             hopeComboBoxRol.Items.AddRange(new object[] { "Empleado", "Admin" });
-            hopeComboBoxRol.Location = new Point(307, 83);
+            hopeComboBoxRol.Location = new Point(307, 131);
             hopeComboBoxRol.Name = "hopeComboBoxRol";
             hopeComboBoxRol.Size = new Size(151, 36);
             hopeComboBoxRol.TabIndex = 17;
@@ -341,7 +345,7 @@
             hopeTextBoxNEmpleado.Font = new Font("Segoe UI", 12F);
             hopeTextBoxNEmpleado.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBoxNEmpleado.Hint = "";
-            hopeTextBoxNEmpleado.Location = new Point(23, 85);
+            hopeTextBoxNEmpleado.Location = new Point(19, 131);
             hopeTextBoxNEmpleado.MaxLength = 32767;
             hopeTextBoxNEmpleado.Multiline = false;
             hopeTextBoxNEmpleado.Name = "hopeTextBoxNEmpleado";
@@ -358,7 +362,7 @@
             // labelDiaVacaciones
             // 
             labelDiaVacaciones.AutoSize = true;
-            labelDiaVacaciones.Location = new Point(313, 147);
+            labelDiaVacaciones.Location = new Point(313, 203);
             labelDiaVacaciones.Name = "labelDiaVacaciones";
             labelDiaVacaciones.Size = new Size(135, 20);
             labelDiaVacaciones.TabIndex = 15;
@@ -368,7 +372,7 @@
             // labelDepartamento
             // 
             labelDepartamento.AutoSize = true;
-            labelDepartamento.Location = new Point(15, 147);
+            labelDepartamento.Location = new Point(12, 209);
             labelDepartamento.Name = "labelDepartamento";
             labelDepartamento.Size = new Size(106, 20);
             labelDepartamento.TabIndex = 14;
@@ -448,9 +452,9 @@
             panelPaso1.Controls.Add(label5);
             panelPaso1.Controls.Add(label3);
             panelPaso1.Dock = DockStyle.Fill;
-            panelPaso1.Location = new Point(0, 80);
+            panelPaso1.Location = new Point(0, 0);
             panelPaso1.Name = "panelPaso1";
-            panelPaso1.Size = new Size(500, 370);
+            panelPaso1.Size = new Size(500, 450);
             panelPaso1.TabIndex = 1;
             // 
             // iconButtonSiguiente
@@ -551,7 +555,7 @@
             hopeTextBoxApellido.Font = new Font("Segoe UI", 12F);
             hopeTextBoxApellido.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBoxApellido.Hint = "Introduce el apellido";
-            hopeTextBoxApellido.Location = new Point(271, 80);
+            hopeTextBoxApellido.Location = new Point(271, 89);
             hopeTextBoxApellido.MaxLength = 32767;
             hopeTextBoxApellido.Multiline = false;
             hopeTextBoxApellido.Name = "hopeTextBoxApellido";
@@ -574,7 +578,7 @@
             hopeTextBoxNombre.Font = new Font("Segoe UI", 12F);
             hopeTextBoxNombre.ForeColor = Color.FromArgb(48, 49, 51);
             hopeTextBoxNombre.Hint = "Introduce el nombre";
-            hopeTextBoxNombre.Location = new Point(15, 80);
+            hopeTextBoxNombre.Location = new Point(3, 89);
             hopeTextBoxNombre.MaxLength = 32767;
             hopeTextBoxNombre.Multiline = false;
             hopeTextBoxNombre.Name = "hopeTextBoxNombre";
@@ -606,16 +610,34 @@
             label3.TabIndex = 0;
             label3.Text = "Nombre";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(19, 89);
+            label10.Name = "label10";
+            label10.Size = new Size(98, 20);
+            label10.TabIndex = 20;
+            label10.Text = "Nº Empleado";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(307, 89);
+            label11.Name = "label11";
+            label11.Size = new Size(31, 20);
+            label11.TabIndex = 21;
+            label11.Text = "Rol";
+            // 
             // NuevoEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(500, 450);
-            Controls.Add(panelPaso3);
+            Controls.Add(panelSuperior);
             Controls.Add(panelPaso2);
             Controls.Add(panelPaso1);
-            Controls.Add(panelSuperior);
+            Controls.Add(panelPaso3);
             FormBorderStyle = FormBorderStyle.None;
             Name = "NuevoEmpleado";
             StartPosition = FormStartPosition.CenterScreen;
@@ -671,5 +693,7 @@
         private Label label8;
         private Label label7;
         private Label label9;
+        private Label label11;
+        private Label label10;
     }
 }

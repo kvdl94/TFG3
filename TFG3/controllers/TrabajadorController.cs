@@ -83,6 +83,13 @@ namespace TFG3.Controllers
                     .From<Trabajador>()
                     .Where(t => t.id == id)
                     .Delete();
+
+                using (var http = new System.Net.Http.HttpClient())
+                {
+                    http.DefaultRequestHeaders.Add("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
+                    http.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
+                    await http.DeleteAsync("https://pfjpwiweholeuspcdicf.supabase.co/auth/v1/admin/users/" + id);
+                }
             }
             catch (Exception ex)
             {
@@ -118,18 +125,12 @@ namespace TFG3.Controllers
             {
                 var sesion = await SupabaseConexion.AdminClient.Auth.SignUp(email, password);
 
-                if (sesion == null)
-                {
-                    return "Error al crear el usuario";
-                }
-
-                if (sesion.User == null)
+                if (sesion == null || sesion.User == null)
                 {
                     return "Error al crear el usuario";
                 }
 
                 userId = sesion.User.Id;
-                MessageBox.Show("UUID: " + userId);
 
                 nuevoTrabajador.id = userId;
                 nuevoTrabajador.email = email;
@@ -142,6 +143,22 @@ namespace TFG3.Controllers
             }
             catch (Exception ex)
             {
+                if (userId != null)
+                {
+                    try
+                    {
+                        using (var http = new System.Net.Http.HttpClient())
+                        {
+                            http.DefaultRequestHeaders.Add("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
+                            http.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
+                            await http.DeleteAsync("https://pfjpwiweholeuspcdicf.supabase.co/auth/v1/admin/users/" + userId);
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+
                 return ex.Message;
             }
         }
