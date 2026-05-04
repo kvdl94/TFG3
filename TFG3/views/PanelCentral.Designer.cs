@@ -81,7 +81,7 @@
             iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton6.IconSize = 24;
             iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton6.Location = new Point(5, 821);
+            iconButton6.Location = new Point(5, 875);
             iconButton6.Name = "iconButton6";
             iconButton6.Size = new Size(261, 110);
             iconButton6.TabIndex = 8;
@@ -102,7 +102,7 @@
             iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton7.IconSize = 24;
             iconButton7.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton7.Location = new Point(5, 727);
+            iconButton7.Location = new Point(5, 781);
             iconButton7.Name = "iconButton7";
             iconButton7.Size = new Size(261, 94);
             iconButton7.TabIndex = 11;
@@ -123,7 +123,7 @@
             iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton5.IconSize = 24;
             iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(5, 633);
+            iconButton5.Location = new Point(5, 687);
             iconButton5.Name = "iconButton5";
             iconButton5.Size = new Size(261, 94);
             iconButton5.TabIndex = 7;
@@ -144,7 +144,7 @@
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 24;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(5, 539);
+            iconButton4.Location = new Point(5, 593);
             iconButton4.Name = "iconButton4";
             iconButton4.Size = new Size(261, 94);
             iconButton4.TabIndex = 6;
@@ -165,7 +165,7 @@
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 24;
             iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(5, 445);
+            iconButton3.Location = new Point(5, 499);
             iconButton3.Name = "iconButton3";
             iconButton3.Size = new Size(261, 94);
             iconButton3.TabIndex = 5;
@@ -186,7 +186,7 @@
             iconButtonGemini.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonGemini.IconSize = 24;
             iconButtonGemini.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButtonGemini.Location = new Point(5, 351);
+            iconButtonGemini.Location = new Point(5, 405);
             iconButtonGemini.Name = "iconButtonGemini";
             iconButtonGemini.Size = new Size(261, 94);
             iconButtonGemini.TabIndex = 10;
@@ -207,7 +207,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 24;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(5, 257);
+            iconButton2.Location = new Point(5, 311);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(261, 94);
             iconButton2.TabIndex = 4;
@@ -228,7 +228,7 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 24;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(5, 163);
+            iconButton1.Location = new Point(5, 217);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(261, 94);
             iconButton1.TabIndex = 3;
@@ -244,7 +244,7 @@
             bigLabel1.ForeColor = Color.FromArgb(200, 160, 64);
             bigLabel1.Location = new Point(5, 106);
             bigLabel1.Name = "bigLabel1";
-            bigLabel1.Size = new Size(261, 57);
+            bigLabel1.Size = new Size(261, 111);
             bigLabel1.TabIndex = 9;
             bigLabel1.Text = "PANEL DE ADMINISTRACIÓN";
             bigLabel1.TextAlign = ContentAlignment.MiddleCenter;
