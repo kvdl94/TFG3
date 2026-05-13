@@ -134,9 +134,9 @@
             iconButtonEnviar.IconColor = Color.Black;
             iconButtonEnviar.IconFont = FontAwesome.Sharp.IconFont.Regular;
             iconButtonEnviar.IconSize = 40;
-            iconButtonEnviar.Location = new Point(807, 11);
+            iconButtonEnviar.Location = new Point(810, 6);
             iconButtonEnviar.Name = "iconButtonEnviar";
-            iconButtonEnviar.Size = new Size(94, 43);
+            iconButtonEnviar.Size = new Size(91, 45);
             iconButtonEnviar.TabIndex = 1;
             iconButtonEnviar.UseVisualStyleBackColor = false;
             iconButtonEnviar.Click += btnEnviar_Click;

@@ -38,7 +38,7 @@ namespace TFG3.views
             
             FichajeController controller = new FichajeController();
             fichajes = await controller.ObtenerFichajesPorEmpleado(trabajador.id);
-            MessageBox.Show("ID trabajador: " + trabajador.id);
+            
 
 
             List<Fichaje> fichajesMes = new List<Fichaje>();

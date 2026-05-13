@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelSuperior = new Panel();
             labelMes = new Label();
-            labelInformeFichajes = new Label();
-            labelRol = new Label();
             labelDepartamento = new Label();
             labelNombre = new Label();
-            pictureBox1 = new PictureBox();
             panelResumen = new Panel();
             labelPuntualidad = new Label();
             labelSalidas = new Label();
@@ -55,7 +52,6 @@
             iconButtonCerrar = new FontAwesome.Sharp.IconButton();
             iconButtonImprimir = new FontAwesome.Sharp.IconButton();
             panelSuperior.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelResumen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFichajes).BeginInit();
             panelBotones.SuspendLayout();
@@ -65,11 +61,8 @@
             // 
             panelSuperior.BackColor = Color.FromArgb(26, 26, 26);
             panelSuperior.Controls.Add(labelMes);
-            panelSuperior.Controls.Add(labelInformeFichajes);
-            panelSuperior.Controls.Add(labelRol);
             panelSuperior.Controls.Add(labelDepartamento);
             panelSuperior.Controls.Add(labelNombre);
-            panelSuperior.Controls.Add(pictureBox1);
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
             panelSuperior.Name = "panelSuperior";
@@ -86,28 +79,6 @@
             labelMes.Size = new Size(59, 25);
             labelMes.TabIndex = 5;
             labelMes.Text = "label1";
-            // 
-            // labelInformeFichajes
-            // 
-            labelInformeFichajes.AutoSize = true;
-            labelInformeFichajes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelInformeFichajes.ForeColor = Color.FromArgb(200, 160, 64);
-            labelInformeFichajes.Location = new Point(564, 0);
-            labelInformeFichajes.Name = "labelInformeFichajes";
-            labelInformeFichajes.Size = new Size(65, 28);
-            labelInformeFichajes.TabIndex = 4;
-            labelInformeFichajes.Text = "label1";
-            // 
-            // labelRol
-            // 
-            labelRol.AutoSize = true;
-            labelRol.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelRol.ForeColor = Color.FromArgb(136, 136, 136);
-            labelRol.Location = new Point(250, 46);
-            labelRol.Name = "labelRol";
-            labelRol.Size = new Size(59, 25);
-            labelRol.TabIndex = 3;
-            labelRol.Text = "label1";
             // 
             // labelDepartamento
             // 
@@ -130,15 +101,6 @@
             labelNombre.Size = new Size(79, 31);
             labelNombre.TabIndex = 1;
             labelNombre.Text = "label1";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.FromArgb(42, 42, 42);
-            pictureBox1.Location = new Point(20, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(44, 44);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // panelResumen
             // 
@@ -245,14 +207,14 @@
             dataGridViewFichajes.AllowUserToAddRows = false;
             dataGridViewFichajes.AllowUserToDeleteRows = false;
             dataGridViewFichajes.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(26, 26, 26);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(200, 160, 64);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewFichajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(26, 26, 26);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(200, 160, 64);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewFichajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewFichajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewFichajes.Columns.AddRange(new DataGridViewColumn[] { Fecha, HoraEntrada, HoraSalida, Retraso, Estado });
             dataGridViewFichajes.Dock = DockStyle.Fill;
@@ -370,7 +332,6 @@
             Load += InformeFichajes_Load;
             panelSuperior.ResumeLayout(false);
             panelSuperior.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelResumen.ResumeLayout(false);
             panelResumen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFichajes).EndInit();
@@ -384,9 +345,6 @@
         private Panel panelResumen;
         private DataGridView dataGridViewFichajes;
         private Panel panelBotones;
-        private PictureBox pictureBox1;
-        private Label labelInformeFichajes;
-        private Label labelRol;
         private Label labelDepartamento;
         private Label labelNombre;
         private Label labelMes;
