@@ -102,9 +102,9 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 30;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(884, 648);
+            iconButton1.Location = new Point(884, 634);
             iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(113, 29);
+            iconButton1.Size = new Size(90, 43);
             iconButton1.TabIndex = 1;
             iconButton1.Text = "Enviar";
             iconButton1.TextAlign = ContentAlignment.MiddleRight;

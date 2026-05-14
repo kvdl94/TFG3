@@ -70,7 +70,7 @@ namespace TFG3.views
             iconButton1.Enabled = false;
             richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(200, 160, 64);
             richTextBox1.AppendText("Tú: " + pregunta + "\n");
-            richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(136, 136, 136);
+            richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(51, 51, 51);
             richTextBox1.AppendText("Grok: Pensando...\n\n");
 
             string contexto = await ObtenerContextoSupabase();

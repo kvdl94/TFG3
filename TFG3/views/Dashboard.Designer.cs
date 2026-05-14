@@ -135,10 +135,11 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.ForeColor = Color.FromArgb(136, 136, 136);
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
             label6.Location = new Point(20, 0);
             label6.Name = "label6";
-            label6.Size = new Size(89, 20);
+            label6.Size = new Size(118, 28);
             label6.TabIndex = 0;
             label6.Text = "Fichajes hoy";
             // 
@@ -177,10 +178,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.ForeColor = Color.FromArgb(136, 136, 136);
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
             label5.Location = new Point(20, -1);
             label5.Name = "label5";
-            label5.Size = new Size(127, 20);
+            label5.Size = new Size(166, 28);
             label5.TabIndex = 0;
             label5.Text = "Tareas pendientes";
             // 
@@ -219,12 +221,13 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = Color.FromArgb(136, 136, 136);
-            label2.Location = new Point(20, 1);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(15, -2);
             label2.Name = "label2";
-            label2.Size = new Size(110, 20);
+            label2.Size = new Size(184, 28);
             label2.TabIndex = 1;
-            label2.Text = "Vac. Pendientes";
+            label2.Text = "Sol. Vac. pendientes";
             // 
             // panelEmpleados
             // 
@@ -242,7 +245,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(200, 160, 64);
+            label7.ForeColor = Color.FromArgb(24, 95, 165);
             label7.Location = new Point(70, 38);
             label7.Name = "label7";
             label7.Size = new Size(43, 50);
@@ -251,7 +254,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(200, 160, 64);
+            panel2.BackColor = Color.FromArgb(24, 95, 165);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -261,10 +264,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.FromArgb(136, 136, 136);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.ImageAlign = ContentAlignment.BottomLeft;
             label1.Location = new Point(20, 2);
             label1.Name = "label1";
-            label1.Size = new Size(120, 20);
+            label1.Size = new Size(155, 28);
             label1.TabIndex = 0;
             label1.Text = "Total empleados";
             // 
