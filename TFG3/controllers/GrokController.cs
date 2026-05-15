@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TFG3.Controllers
 {
-    public class GeminiController
+    public class GrokController
     {
         private string apiKey = Secrets.GroqApiKey;
         private static readonly HttpClient client = new HttpClient();

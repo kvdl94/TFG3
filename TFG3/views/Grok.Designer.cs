@@ -1,6 +1,6 @@
 ﻿namespace TFG3.views
 {
-    partial class Gemini
+    partial class Grok
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -143,12 +143,12 @@
             label11.TabIndex = 3;
             label11.Text = "Asistente DHL";
             // 
-            // Gemini
+            // Grok
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelIA);
-            Name = "Gemini";
+            Name = "Grok";
             Size = new Size(1215, 782);
             panelIA.ResumeLayout(false);
             panelInferior.ResumeLayout(false);

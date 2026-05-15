@@ -40,7 +40,7 @@ namespace TFG3.Controllers
             {
                 Notificacion nueva = new Notificacion();
                 nueva.id_trabajador = idTrabajador;
-                nueva.id_remitente = idRemitente;  // AÑADE
+                nueva.id_remitente = idRemitente;  
                 nueva.titulo = titulo;
                 nueva.mensaje = mensaje;
                 nueva.tipo = tipo;

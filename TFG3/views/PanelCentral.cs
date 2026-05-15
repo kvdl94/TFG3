@@ -74,7 +74,7 @@ namespace TFG3.views
         private void iconButtonGemini_Click(object sender, EventArgs e)
         {
             panelContenedor.Controls.Clear();
-            Gemini gemini = new Gemini();
+            Grok gemini = new Grok();
             gemini.Dock = DockStyle.Fill;
             panelContenedor.Controls.Add(gemini);
             gemini.BringToFront();

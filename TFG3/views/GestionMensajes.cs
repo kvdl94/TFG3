@@ -41,12 +41,11 @@ namespace TFG3.views
                 {
                     if (t.id == adminId) continue;
 
-                    // Lógica para obtener solo Nombre + Primer Apellido para la lista lateral
+                 
                     string[] partesApellidos = t.apellidos.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     string primerApellido = partesApellidos.Length > 0 ? partesApellidos[0] : "";
                     string nombreCorto = t.nombre + " " + primerApellido;
 
-                    // Guardamos el nombre completo para el título del chat
                     string nombreCompleto = t.nombre + " " + t.apellidos;
 
                     Panel fila = new Panel
@@ -72,7 +71,7 @@ namespace TFG3.views
                         BackColor = Color.FromArgb(26, 26, 26)
                     };
 
-                    // Iniciales (Nombre + Apellido)
+                    
                     string iniciales = t.nombre[0].ToString() + (t.apellidos.Length > 0 ? t.apellidos[0].ToString() : "");
                     Label lblIniciales = new Label
                     {
@@ -87,7 +86,7 @@ namespace TFG3.views
 
                     Label lblNombre = new Label
                     {
-                        Text = nombreCorto, // Usamos el nombre corto aquí
+                        Text = nombreCorto, 
                         ForeColor = Color.FromArgb(51, 51, 51),
                         Font = new Font("Segoe UI", 10, FontStyle.Bold),
                         AutoSize = false,
@@ -99,7 +98,7 @@ namespace TFG3.views
 
                     string idEmp = t.id;
 
-                    // Acción al seleccionar: Usamos nombreCompleto para que arriba salga todo
+                    
                     Action selectAction = () => SeleccionarEmpleado(idEmp, nombreCompleto, bordeIzq, fila);
 
                     fila.Click += (s, ev) => selectAction();
@@ -156,7 +155,7 @@ namespace TFG3.views
             {
                 bool esMio = m.id_remitente == adminId;
 
-                // Creamos el Label primero para medir cuánto espacio ocupa el texto
+                
                 Label lblMensaje = new Label
                 {
                     Text = m.mensaje,
@@ -164,20 +163,20 @@ namespace TFG3.views
                     Font = new Font("Segoe UI", 10),
                     BackColor = Color.Transparent,
                     AutoSize = true,
-                    MaximumSize = new Size(300, 0), // Ancho máximo de la burbuja
+                    MaximumSize = new Size(300, 0), 
                     Location = new Point(12, 10)
                 };
 
-                // Creamos la burbuja ajustada al tamaño del label + márgenes
+               
                 Panel burbuja = new Panel
                 {
                     BackColor = esMio ? Color.FromArgb(230, 243, 255) : Color.FromArgb(245, 245, 245),
-                    // Calculamos el tamaño dinámico:
+                    
                     Width = Math.Max(lblMensaje.PreferredWidth + 24, 70),
                     Height = lblMensaje.PreferredHeight + 35,
                 };
 
-                // Borde redondeado sutil para mensajes recibidos
+               
                 if (!esMio)
                 {
                     burbuja.Paint += (s, e) => {
@@ -185,7 +184,7 @@ namespace TFG3.views
                     };
                 }
 
-                // Hora en la esquina inferior derecha de la burbuja
+               
                 Label lblHora = new Label
                 {
                     Text = m.fecha.HasValue ? m.fecha.Value.ToString("HH:mm") : "",
@@ -195,22 +194,22 @@ namespace TFG3.views
                     BackColor = Color.Transparent
                 };
 
-                // Posicionar la hora dinámicamente al fondo a la derecha
+               
                 burbuja.Controls.Add(lblMensaje);
                 burbuja.Controls.Add(lblHora);
                 lblHora.Location = new Point(burbuja.Width - lblHora.PreferredWidth - 8, burbuja.Height - 18);
 
-                // Alineación del panel (Derecha si es mío, Izquierda si es de él)
+                
                 int xPos = esMio ? panelChat.ClientSize.Width - burbuja.Width - 25 : 20;
                 burbuja.Location = new Point(xPos, yPos);
 
                 panelChat.Controls.Add(burbuja);
 
-                // El siguiente mensaje se posiciona debajo de este
+                
                 yPos += burbuja.Height + 15;
             }
 
-            // Scroll automático al final
+           
             panelChat.VerticalScroll.Value = panelChat.VerticalScroll.Maximum;
             panelChat.PerformLayout();
         }

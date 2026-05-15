@@ -7,9 +7,9 @@ using TFG3.Modelo;
 
 namespace TFG3.views
 {
-    public partial class Gemini : UserControl
+    public partial class Grok : UserControl
     {
-        public Gemini()
+        public Grok()
         {
             InitializeComponent();
 
@@ -75,7 +75,7 @@ namespace TFG3.views
 
             string contexto = await ObtenerContextoSupabase();
 
-            string respuesta = await new GeminiController().PreguntarAsync(contexto, pregunta);
+            string respuesta = await new GrokController().PreguntarAsync(contexto, pregunta);
 
             int pos = richTextBox1.Text.LastIndexOf("Pensando...");
             if (pos >= 0)
