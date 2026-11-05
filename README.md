@@ -1,4 +1,3 @@
-[README (1).md](https://github.com/user-attachments/files/34421963/README.1.md)
 
 # TFG3 · Panel de administración de empleados
 
