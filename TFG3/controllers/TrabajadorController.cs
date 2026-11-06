@@ -86,9 +86,9 @@ namespace TFG3.Controllers
 
                 using (var http = new System.Net.Http.HttpClient())
                 {
-                    http.DefaultRequestHeaders.Add("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
-                    http.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
-                    await http.DeleteAsync("https://pfjpwiweholeuspcdicf.supabase.co/auth/v1/admin/users/" + id);
+                    http.DefaultRequestHeaders.Add("apikey", Secrets.SupabaseServiceKey);
+                    http.DefaultRequestHeaders.Add("Authorization", "Bearer " + Secrets.SupabaseServiceKey);
+                    await http.DeleteAsync(Secrets.SupabaseUrl + "/auth/v1/admin/users/" + id);
                 }
             }
             catch (Exception ex)
@@ -149,9 +149,9 @@ namespace TFG3.Controllers
                     {
                         using (var http = new System.Net.Http.HttpClient())
                         {
-                            http.DefaultRequestHeaders.Add("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
-                            http.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw");
-                            await http.DeleteAsync("https://pfjpwiweholeuspcdicf.supabase.co/auth/v1/admin/users/" + userId);
+                            http.DefaultRequestHeaders.Add("apikey", Secrets.SupabaseServiceKey);
+                            http.DefaultRequestHeaders.Add("Authorization", "Bearer " + Secrets.SupabaseServiceKey);
+                            await http.DeleteAsync(Secrets.SupabaseUrl + "/auth/v1/admin/users/" + userId);
                         }
                     }
                     catch
