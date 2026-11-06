@@ -31,9 +31,9 @@ namespace TFG3.services
 
         public static async Task InicializarAsync()
         {
-            string url = "https://pfjpwiweholeuspcdicf.supabase.co";
-            string key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3ODk4MjYsImV4cCI6MjA4ODM2NTgyNn0.gCFW9aK_t6SrvMLcBTiRUcUxjqd06PMDV78zqc1vHkk";
-            string serviceKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmanB3aXdlaG9sZXVzcGNkaWNmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjc4OTgyNiwiZXhwIjoyMDg4MzY1ODI2fQ.FF2_M4801S3t459p14Au3yVgpER9bJx5edT6aWnNdqw";
+            string url = Secrets.SupabaseUrl;
+            string key = Secrets.SupabaseAnonKey;
+            string serviceKey = Secrets.SupabaseServiceKey;
 
             SupabaseOptions options = new SupabaseOptions
             {
